@@ -625,9 +625,8 @@ async function starts() {
 					faki.splice(yath, 1)
 					fs.writeFileSync('./lib/fake.json', JSON.stringify(faki))
 					client.reply(from, 'Anti-fakes desabilitado.', id)
-				}
             } else {
-                client.reply(from, mess.error.Ga, id)
+                reply(from, mess.error.lv, id)
             }
             break
 				case 'clone':
