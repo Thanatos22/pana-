@@ -103,17 +103,19 @@ async function starts() {
 			if (mek.key.fromMe) return
 			global.prefix
 			global.blocked
+			const { id, sender, chat, chatId } = message
 			const content = JSON.stringify(mek.message)
 			const from = mek.key.remoteJid
 			const type = Object.keys(mek.message)[0]
 			const apiKey = 'Your-Api-Key'
 			const { text, extendedText, contact, location, liveLocation, image, video, sticker, document, audio, product } = MessageType
-			const time = moment.tz('Asia/Jakarta').format('DD/MM HH:mm:ss')
+			const time = moment.tz('America/Sao_Paulo').format('DD/MM HH:mm:ss')
 			body = (type === 'conversation' && mek.message.conversation.startsWith(prefix)) ? mek.message.conversation : (type == 'imageMessage') && mek.message.imageMessage.caption.startsWith(prefix) ? mek.message.imageMessage.caption : (type == 'videoMessage') && mek.message.videoMessage.caption.startsWith(prefix) ? mek.message.videoMessage.caption : (type == 'extendedTextMessage') && mek.message.extendedTextMessage.text.startsWith(prefix) ? mek.message.extendedTextMessage.text : ''
 			budy = (type === 'conversation') ? mek.message.conversation : (type === 'extendedTextMessage') ? mek.message.extendedTextMessage.text : ''
 			const command = body.slice(1).trim().split(/ +/).shift().toLowerCase()
 			const args = body.trim().split(/ +/).slice(1)
 			const isCmd = body.startsWith(prefix)
+			const isLeg = exsv.includes(chatId)
 
 			mess = {
 				wait: '⌛ Sedang di Prosess ⌛',
@@ -130,6 +132,22 @@ async function starts() {
 					Badmin: '❌ Perintah ini hanya bisa di gunakan ketika bot menjadi admin! ❌'
 				}
 			}
+			
+			// ANTI GRUPOS && ANTI PORNO
+        if (isGroup && isLeg && !isGroupAdmins && !isOwner){
+            if (chats.match(/(https?:\/\/chat.whatsapp.com)/gi)) {
+				console.log('Verificando o link de grupo recebido.')
+                const check = await client.inviteInfo(chats)
+                if (check.status == 200) {
+                    client.removeParticipant(groupId, sender.id)
+					console.log('Era link real então removi o ' + sender.id)
+                } else {
+                    console.log('Link de grupo recebido! Mas é falso, não representa ameaças')
+		} else {
+            if (chats.match(/(https?:\/\/chat.whatsapp.com)/gi)) {
+				console.log('Link de grupo recebido, mas foi por alguém da White List ou no PV.')
+			}
+		}
 
 			const botNumber = client.user.jid
 			const ownerNumber = ["6285892766102@s.whatsapp.net"] // replace this with your number
@@ -140,6 +158,7 @@ async function starts() {
 			const groupId = isGroup ? groupMetadata.jid : ''
 			const groupMembers = isGroup ? groupMetadata.participants : ''
 			const groupAdmins = isGroup ? getGroupAdmins(groupMembers) : ''
+			const isOwn = sender.id
 			const isBotGroupAdmins = groupAdmins.includes(botNumber) || false
 			const isGroupAdmins = groupAdmins.includes(sender) || false
 			const isWelkom = isGroup ? welkom.includes(from) : false
@@ -392,6 +411,23 @@ async function starts() {
 						reply('Kemungkinan username tidak valid')
 					}
 					break
+                case 'exclusive':
+            if (!isGroup) return reply(mess.only.group)
+		    if (!isOwner) return reply(mess.only.ownerB)
+            if (args.length < 1) return client.reply(from, 'Defina entre on e off!', id)
+			if (args[0] == 'on') {
+                exsv.push(chatId)
+                fs.writeFileSync('./lib/exclusive.json', JSON.stringify(exsv))
+                client.reply(from, 'Os comandos exclusivos do Legião foram habilitados.', id)
+			} else if (args[0] == 'off') {
+				let exclu = exsv.indexOf(chatId)
+                exsv.splice(exclu, 1)
+                fs.writeFileSync('./lib/exclusive.json', JSON.stringify(exsv))
+                client.reply(from, 'Os comandos exclusivos do Legião foram desabilitados.', id)
+            } else {
+                client.reply(from, 'Defina on ou off!', id)
+            }
+            break
 				case 'nulis':
 				case 'tulis':
 					if (args.length < 1) return reply('Yang mau di tulis apaan?')
