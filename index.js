@@ -566,7 +566,7 @@ async function starts() {
                                       break
                 case 'fake':
 			if (!isGroup) return reply(mess.only.group)
-					if (!isGroupAdmins) return reply(mess.only.admin) {
+					if (!isGroupAdmins) return reply(mess.only.admin)
 				if (args.length < 1) return client.reply(from, 'Macaco, c tem que escolher entre on e off', id)
 				if (args[0] == 'on') {
 					faki.push(chatId)
