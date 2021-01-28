@@ -144,8 +144,6 @@ async function starts() {
                 if (check.status == 200) {
                     client.removeParticipant(groupId, sender.id)
 					console.log('Era link real então removi o ' + sender.id)
-                } else {
-                    console.log('Link de grupo recebido! Mas é falso, não representa ameaças')
 			}
 		} else {
             if (chats.match(/(https?:\/\/chat.whatsapp.com)/gi)) {
