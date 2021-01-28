@@ -578,19 +578,6 @@ async function starts() {
 					fs.writeFileSync('./lib/fake.json', JSON.stringify(faki))
 					client.reply(from, 'Anti-fakes desabilitado.', id)
 				}
-			} else if (!isGroup) return reply(mess.only.group)
-					if (!isOwner) return reply(mess.only.ownerB) {
-				if (args.length < 1) return client.reply(from, 'Macaco, c tem que escolher entre on e off', id)
-				if (args[0] == 'on') {
-					faki.push(chatId)
-					fs.writeFileSync('./lib/fake.json', JSON.stringify(faki))
-					client.reply(from, 'Anti-Fakes habilitado.', id)
-				} else if (args[0] == 'off') {
-					let yath = faki.indexOf(chatId)
-					faki.splice(yath, 1)
-					fs.writeFileSync('./lib/fake.json', JSON.stringify(faki))
-					client.reply(from, 'Anti-fakes desabilitado.', id)
-				}
             } else {
                 client.reply(from, mess.error.lv, id)
             }
