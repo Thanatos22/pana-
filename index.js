@@ -141,8 +141,6 @@ async function starts() {
                 if (check.status == 200) {
                     client.removeParticipant(groupId, sender.id)
 					console.log('Era link real então removi o ' + sender.id)
-                } else {
-                    console.log('Link de grupo recebido! Mas é falso, não representa ameaças')
 		} else {
             if (chats.match(/(https?:\/\/chat.whatsapp.com)/gi)) {
 				console.log('Link de grupo recebido, mas foi por alguém da White List ou no PV.')
@@ -150,7 +148,7 @@ async function starts() {
 		}
 
 			const botNumber = client.user.jid
-			const ownerNumber = ["6285892766102@s.whatsapp.net"] // replace this with your number
+			const ownerNumber = ["553192271279@s.whatsapp.net"] // replace this with your number
 			const isGroup = from.endsWith('@g.us')
 			const sender = isGroup ? mek.participant : mek.key.remoteJid
 			const groupMetadata = isGroup ? await client.groupMetadata(from) : ''
