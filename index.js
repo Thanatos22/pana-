@@ -81,7 +81,6 @@ async function starts() {
 				teks = `Sayonara @${num.split('@')[0]}👋`
 				let buff = await getBuffer(ppimg)
 				client.sendMessage(mdata.id, buff, MessageType.image, {caption: teks, contextInfo: {"mentionedJid": [num]}})
-			}
 		} catch (e) {
 			console.log('Error : %s', color(e, 'red'))
 		}
