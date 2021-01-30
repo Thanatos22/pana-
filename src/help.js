@@ -5,20 +5,31 @@ const help = (prefix) => {
 ╠═══════════════════
 ║╭──❉ * ⛤𝘾𝙤𝙢𝙖𝙣𝙙𝙤𝙨⛤ * ❉──
 
-║│↭ _*prefix*  [ *${prefix}* ] 
+║│↭ _*prefix*  [ * ${prefix} * ] 
 
+║│ 𝙉𝙊𝙏𝙀: 𝙋𝘼𝙍𝘼 𝙐𝙎𝘼𝙍 𝘼𝙇𝙂𝙐𝙈𝘼𝙎 𝘿𝘼𝙎 𝙁𝙐𝙉𝘾𝙊𝙀𝙎 𝘿𝙀𝙎𝙏𝙀 𝘽𝙊𝙏 𝙁𝘼𝙕-𝙎𝙀 𝙉𝙀𝘾𝙀𝙎𝙎𝘼𝙍𝙄𝙊 𝙎𝙀 𝙄𝙉𝙎𝘾𝙍𝙀𝙑𝙀𝙍
+
+║│↭_*   [ *${prefix}register* ] 
+║│↭_*   [ *${prefix}limit* ] 
+║│↭_*   [ *${prefix}buylimit* ] 
+║│↭_*   [ *${prefix}carteira* ] 
+║│↭_*   [ *${prefix}lb* ] 
+║│↭_*   [ *${prefix}level* ] 
 ║│↭_*   [ *${prefix}hour* ] 
-║│↭_*   [ *${prefix}speed* ] 
 ║│↭ _*  [ *${prefix}dono* ] 
 ║│↭_*   [ *${prefix}menuadmin*]
 ║│↭_*   [ *${prefix}thanatosmenu*]
+║│↭_*   [ *${prefix}mkmenu*]
+║│↭_*   [ *${prefix}info* ] 
+║│↭_*   [ *${prefix}namoradinha* ]  (𝙋𝙑)
+║│↭_*   [ *${prefix}next* ]  (𝙋𝙑)
+║│↭_*   [ *${prefix}probabilidade* ] 
 ║│↭ _*  [ *${prefix}kmkzlist* ] 
 ║│↭ _*  [ *${prefix}ocr* ] 
 ║│↭ _*  [ *${prefix}sticker* ] 
 ║│↭_*   [ *${prefix}meme* ] 
 ║│↭_*   [ *${prefix}sugestões* ]  
 ║│↭_*   [ *${prefix}listadms* ] 
-║│↭_*   [ *${prefix}tagall3* ] 
 ║│↭_*   [ *${prefix}toimg* ] 
 ║│↭_*   [ *${prefix}tomp3* ] 
 ║│↭_*   [ *${prefix}nick* ] 
