@@ -14,8 +14,7 @@ const thanatosmenu = (prefix) => {
 ║│↭_*   [ *${prefix}start* ] 
 ║│↭_*   [ *${prefix}%* ]
 ║
-╰───────────
-
+╰───────────`
 }
 
 exports.thanatosmenu = thanatosmenu

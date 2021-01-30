@@ -8,6 +8,7 @@ const help = (prefix) => {
 ║│↭ _*prefix*  [ *${prefix}* ] 
 
 ║│↭_*   [ *${prefix}hour* ] 
+║│↭_*   [ *${prefix}speed* ] 
 ║│↭ _*  [ *${prefix}dono* ] 
 ║│↭_*   [ *${prefix}menuadmin*]
 ║│↭_*   [ *${prefix}thanatosmenu*]
