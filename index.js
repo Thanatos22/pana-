@@ -525,26 +525,6 @@ client.on('group-participants-update', async (anu) => {
 						fs.unlinkSync(rano)
 					})
 					break
-				case 'leaderboard':
-				case 'lb':
-				_level.sort((a, b) => (a.xp < b.xp) ? 1 : -1)
-				uang.sort((a, b) => (a.uang < b.uang) ? 1 : -1)
-                let leaderboardlvl = '-----[ *𝙍𝘼𝙉𝙆𝙄𝙉𝙂 𝙇𝙀𝙑𝙀𝙇* ]----\n\n'
-                let leaderboarduang = '-----[ *𝙍𝘼𝙉𝙆𝙄𝙉𝙂 𝙋𝙊𝙉𝙏𝙊𝙎* ]----\n\n'
-                let nom = 0
-                try {
-                    for (let i = 0; i < 10; i++) {
-                        nom++
-                        leaderboardlvl += `*[${nom}]* wa.me/${_level[i].id.replace('@s.whatsapp.net', '')}\n┗⊱ *XP*: ${_level[i].xp} *Level*: ${_level[i].level}\n`
-                        leaderboarduang += `*[${nom}]* wa.me/${uang[i].id.replace('@s.whatsapp.net', '')}\n┣⊱ *Pontos*: _Rp${uang[i].uang}_\n┗⊱ *Limite*: ${limitawal - _limit[i].limit}\n`
-                    }
-                    await reply(leaderboardlvl)
-                    await reply(leaderboarduang)
-                } catch (err) {
-                    console.error(err)
-                    await reply(`minimal 10 user untuk bisa mengakses database`)
-                }
-				break
 				case 'namoradinha':
                 if (!isRegistered) return reply( ind.noregis())
                 if (isGroup) return  reply( 'Este comando não pode ser usado em grupos!')
@@ -585,7 +565,7 @@ client.on('group-participants-update', async (anu) => {
 					if(!isUrl(args[0]) && !args[0].includes('youtu')) return reply(ind.wrogf())
 					anu = await fetchJson(`https://docs-jojo.herokuapp.com/api/ytmp3?url=${args[0]}`, {method: 'get'})
 					if (anu.error) return reply(anu.error)
-					teks = `*Title* : ${anu.title}\n*Size* : ${anu.filesize}`
+					teks = `*Título* : ${anu.title}\n*tamanho* : ${anu.filesize}`
 					thumb = await getBuffer(anu.thumb)
 					client.sendMessage(from, thumb, image, {quoted: mek, caption: teks})
 					buffer = await getBuffer(anu.result)
@@ -641,8 +621,8 @@ client.on('group-participants-update', async (anu) => {
                 const namaUser = q.substring(0, q.indexOf('|') - 0)
                 const umurUser = q.substring(q.lastIndexOf('|') + 1)
                 const serialUser = createSerial(20)
-                if (namaUser.length >= 30) return reply(`why is your name so long it's a name or a train`)
-                if (umurUser.length >= 3, umurUser.length <= 1) return reply(`your age is too young / old minimum age 10 years and maximum 40 years`)
+                if (namaUser.length >= 30) return reply(`Nome grande do carai`)
+                if (umurUser.length >= 3, umurUser.length <= 1) return reply(`muito novo pra jsar a desgraça do botz você deve ter no minimo 10 anos`)
                 veri = sender
                 if (isGroup) {
                     addRegisteredUser(sender, namaUser, umurUser, time, serialUser)
@@ -657,22 +637,6 @@ client.on('group-participants-update', async (anu) => {
                     addLevelingId(sender)
                     console.log(color('[REGISTER]'), color(time, 'yellow'), 'Name:', color(namaUser, 'cyan'), 'Age:', color(umurUser, 'cyan'), 'Serial:', color(serialUser, 'cyan'))
                 }
-					break
-            	case 'mining':
-                      if (!isRegistered) return reply(ind.noregis())
-                      if (isLimit(sender)) return reply(ind.limitend(pushname))
-                      if (!isEventon) return reply(`maaf ${pushname} event mining tidak di aktifkan oleh owner`)
-                      if (isOwner) {
-                      const one = 999999999
-                      addLevelingXp(sender, one)
-                      addLevelingLevel(sender, 99)
-                      reply(`karena anda owner kami dari team bot mengirim ${one}Xp untuk anda`)
-                      }else{
-                      const mining = Math.ceil(Math.random() * 10000)
-                      addLevelingXp(sender, mining)
-                      await reply(`*selamat* ${pushname} kamu mendapatkan *${mining}Xp*`)
-                      }
-                    await limitAdd(sender)
 					break
 				case 'probabilidade':
 				if (!isRegistered) return reply(ind.noregis())
@@ -695,10 +659,6 @@ client.on('group-participants-update', async (anu) => {
                 case 'menuadmin':
 					hisil = fs.readFileSync('./assets/menuimg.jpg')
 					client.sendMessage(from, hisil, image, {quoted: mek, caption: menuadmin(prefix), text})
-					break
-                case 'mkmenu':
-					hisil = fs.readFileSync('./assets/menuimg.jpg')
-					client.sendMessage(from, hisil, image, {quoted: mek, caption: mkmenu(prefix), text})
 					break
 				case 'thanatosmenu':
 					client.sendMessage(from, thanatosmenu(prefix), text)
@@ -733,7 +693,7 @@ client.on('group-participants-update', async (anu) => {
 					teks += `𝗧𝗼𝘁𝗮𝗹 : ${blocked.length}`
 					client.sendMessage(from, teks.trim(), extendedText, {quoted: mek, contextInfo: {"mentionedJid": blocked}})
 					break
-                case 'tagall':
+                case 'hidetag':
                 if (!isRegistered) return reply(ind.noregis())
                 if (isLimit(sender)) return reply(ind.limitend(pusname))
 					if (!isGroup) return reply(ind.groupo())
@@ -760,7 +720,7 @@ client.on('group-participants-update', async (anu) => {
 					if(!isUrl(args[0]) && !args[0].includes('youtu')) return reply(ind.stikga())
 					anu = await fetchJson(`https://docs-jojo.herokuapp.com/api/ytmp4?url=${args[0]}`, {method: 'get'})
 					if (anu.error) return reply(anu.error)
-					teks = `*Title* : ${anu.title}\n*Size* : ${anu.filesize}`
+					teks = `*Título* : ${anu.title}\n*tamanho* : ${anu.filesize}`
 					thumb = await getBuffer(anu.thumb)
 					client.sendMessage(from, thumb, image, {quoted: mek, caption: teks})
 					buffer = await getBuffer(anu.result)
@@ -854,15 +814,15 @@ client.on('group-participants-update', async (anu) => {
 							.toFormat('webp')
 							.save(ran)
 							} else {
-						reply(`Kirim gambar dengan caption ${prefix}sticker atau reply/tag gambar`)
+						reply(`Ta achando que eu sou deus carai, faz essa porra direito`)
 					}
 					break
 				case 'gtts':
 				if (!isRegistered) return reply(ind.noregis())
 				if (isLimit(sender)) return reply(ind.limitend(pusname))
-				if (args.length < 1) return client.sendMessage(from, 'Diperlukan kode bahasa!!', text, {quoted: mek})
+				if (args.length < 1) return client.sendMessage(from, 'Cade a porra do codigo de pais macaco', text, {quoted: mek})
 					const gtts = require('./lib/gtts')(args[0])
-					if (args.length < 2) return client.sendMessage(from, 'Textnya mana om', text, {quoted: mek})
+					if (args.length < 2) return client.sendMessage(from, 'Cade a porra do texto macaco', text, {quoted: mek})
 					dtt = body.slice(8)
 					ranm = getRandom('.mp3')
 					rano = getRandom('.ogg')
@@ -901,7 +861,7 @@ client.on('group-participants-update', async (anu) => {
 				    client.sendMessage(from, yeh, text, {quoted: mek})
 			        await limitAdd(sender)
 					break
-				case 'tagall2':
+				case 'tagall':
 					if (!isGroup) return reply(ind.groupo())
 					if (!isGroupAdmins) return reply(ind.admin())
 					members_id = []
