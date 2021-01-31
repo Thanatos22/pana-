@@ -1118,15 +1118,15 @@ client.on('group-participants-update', async (anu) => {
 				case 'clone':
 					if (!isGroup) return reply(ind.groupo())
 					if (!isOwner) return reply(ind.ownerg()) 
-					if (args.length < 1) return reply('Papai, odeio ter que dizer isso, mas vc me codou e nao sabe como usar esse comando? pora :-\')
-					if (mek.message.extendedTextMessage === undefined || mek.message.extendedTextMessage === null) return reply('O_o')
+					if (args.length < 1) return reply(' *TAG YANG MAU DI CLONE!!!* ')
+					if (mek.message.extendedTextMessage === undefined || mek.message.extendedTextMessage === null) return reply('Tag cvk')
 					mentioned = mek.message.extendedTextMessage.contextInfo.mentionedJid[0]
 					let { jid, id, notify } = groupMembers.find(x => x.jid === mentioned)
 					try {
 						pp = await client.getProfilePicture(id)
 						buffer = await getBuffer(pp)
 						client.updateProfilePicture(botNumber, buffer)
-						mentions(`Pronto papai, clonei a foto desse corno @${id.split('@')[0]}`, [jid], true)
+						mentions(`Foto profile Berhasil di perbarui menggunakan foto profile @${id.split('@')[0]}`, [jid], true)
 					} catch (e) {
 						reply(ind.stikga())
 					}
