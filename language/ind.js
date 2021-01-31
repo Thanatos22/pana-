@@ -91,27 +91,27 @@ exports.owneresce = (pushname) => {
 }
 
 exports.reglevelaha = (command, pushname, getLevelingLevel, sender, aha) => {
-	return`*Maaf ${pushname} level mu belum mencukupi*\n\n*┏⊱level mu : ${getLevelingLevel(sender)}*\n*┣⊱jenis command : ${command}*\n*┗⊱syarat level : ${aha}*\n\n_NOTE : CHAT/SELALU ON UNTUK MENDAPATKAN XP_`
+	return`*${pushname} Você ainda não chegou no level onde essa função é desbloqueada*\n\n*┏⊱Seu Level: ${getLevelingLevel(sender)}*\n*┣⊱comando: ${command}*\n*┗⊱Level necessário: ${aha}*\n\n_NOTE: PARA SUBIR DE NIVEL E PODER USAR ESTE COMANDO, FIQUE ATIVO  E PROCURE INTERAGIR NOS GRUPOS ONDE O BOT ESTÁ_`
 }
 
 exports.reglevelahb = (command, pushname, getLevelingLevel, sender, ahb) => {
-	return`*Maaf ${pushname} level mu belum mencukupi*\n\n*┏⊱level mu : ${getLevelingLevel(sender)}*\n*┣⊱jenis command : ${command}*\n*┗⊱syarat level : ${ahb}*\n\n_NOTE : CHAT/SELALU ON UNTUK MENDAPATKAN XP_`
+	return`*${pushname} Você ainda não chegou no level onde essa função é desbloqueada*\n\n*┏⊱Seu Level: ${getLevelingLevel(sender)}*\n*┣⊱comando: ${command}*\n*┗⊱Level necessário: ${ahb}*\n\n_NOTE: PARA SUBIR DE NIVEL E PODER USAR ESTE COMANDO, FIQUE ATIVO  E PROCURE INTERAGIR NOS GRUPOS ONDE O BOT ESTÁ_`
 }
 
 exports.reglevelahc = (command, pushname, getLevelingLevel, sender, ahc) => {
-	return`*Maaf ${pushname} level mu belum mencukupi*\n\n*┏⊱level mu : ${getLevelingLevel(sender)}*\n*┣⊱jenis command : ${command}*\n*┗⊱syarat level : ${ahc}*\n\n_NOTE : CHAT/SELALU ON UNTUK MENDAPATKAN XP_`
+	return`*${pushname} Você ainda não chegou no level onde essa função é desbloqueada*\n\n*┏⊱Seu Level: ${getLevelingLevel(sender)}*\n*┣⊱comando: ${command}*\n*┗⊱Level necessário: ${ahc}*\n\n_NOTE: PARA SUBIR DE NIVEL E PODER USAR ESTE COMANDO, FIQUE ATIVO  E PROCURE INTERAGIR NOS GRUPOS ONDE O BOT ESTÁ_`
 }
 
 exports.reglevelahd = (command, pushname, getLevelingLevel, sender, ahd) => {
-	return`*Maaf ${pushname} level mu belum mencukupi*\n\n*┏⊱level mu : ${getLevelingLevel(sender)}*\n*┣⊱jenis command : ${command}*\n*┗⊱syarat level : ${ahd}*\n\n_NOTE : CHAT/SELALU ON UNTUK MENDAPATKAN XP_`
+	return`*${pushname} Você ainda não chegou no level onde essa função é desbloqueada*\n\n*┏⊱Seu Level: ${getLevelingLevel(sender)}*\n*┣⊱comando: ${command}*\n*┗⊱Level necessário: ${ahd}*\n\n_NOTE: PARA SUBIR DE NIVEL E PODER USAR ESTE COMANDO, FIQUE ATIVO  E PROCURE INTERAGIR NOS GRUPOS ONDE O BOT ESTÁ_`
 }
 
 exports.reglevelahe = (command, pushname, getLevelingLevel, sender, ahe) => {
-	return`*Maaf ${pushname} level mu belum mencukupi*\n\n*┏⊱level mu : ${getLevelingLevel(sender)}*\n*┣⊱jenis command : ${command}*\n*┗⊱syarat level : ${ahe}*\n\n_NOTE : CHAT/SELALU ON UNTUK MENDAPATKAN XP_`
+	return`*${pushname} Você ainda não chegou no level onde essa função é desbloqueada*\n\n*┏⊱Seu Level: ${getLevelingLevel(sender)}*\n*┣⊱comando: ${command}*\n*┗⊱Level necessário: ${ahe}*\n\n_NOTE: PARA SUBIR DE NIVEL E PODER USAR ESTE COMANDO, FIQUE ATIVO  E PROCURE INTERAGIR NOS GRUPOS ONDE O BOT ESTÁ_`
 }
 
 exports.reglevelahf = (command, pushname, getLevelingLevel, sender, ahf) => {
-	return`*Maaf ${pushname} level mu belum mencukupi*\n\n*┏⊱level mu : ${getLevelingLevel(sender)}*\n*┣⊱jenis command : ${command}*\n*┗⊱syarat level : ${ahf}*\n\n_NOTE : CHAT/SELALU ON UNTUK MENDAPATKAN XP_`
+	return`*${pushname} Você ainda não chegou no level onde essa função é desbloqueada*\n\n*┏⊱Seu Level: ${getLevelingLevel(sender)}*\n*┣⊱comando: ${command}*\n*┗⊱Level necessário: ${ahf}*\n\n_NOTE: PARA SUBIR DE NIVEL E PODER USAR ESTE COMANDO, FIQUE ATIVO  E PROCURE INTERAGIR NOS GRUPOS ONDE O BOT ESTÁ_`
 }
 
 exports.menu = (pushname, prefix, getLevelingLevel, getLevelingXp, sender, reqXp, _registered, uangku, role) => { 
@@ -248,7 +248,7 @@ NOTE : Para conseguir mais comandos suba de level ou compre mais comandos com se
 }
 
 exports.satukos = () => {
-	return`*Tambah parameter 1/enable atau 0/disable`
+	return`*Faz essa porra direito macaco`
 }
 
 exports.uangkau = (pushname, sender, uangkau) => {
