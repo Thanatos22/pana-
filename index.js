@@ -29,6 +29,7 @@ const { dono } = require('./src/dono')
 const { thanatosmenu } = require('./src/thanatosmenu')
 const { menuadmin } = require('./src/menuadmin')
 const { mkmenu } = require('./src/mkmenu')
+const { gp } = require('./src/gp')
 const { wait, simih, getBuffer, h2k, generateMessageID, getGroupAdmins, getRandom, banner, start, info, success, close } = require('./lib/functions')
 const tiktod = require('tiktok-scraper')
 const brainly = require('brainly-scraper')
@@ -276,7 +277,7 @@ client.on('group-participants-update', async (anu) => {
 				} catch {
 					ppimg = 'https://i0.wp.com/www.gambarunik.id/wp-content/uploads/2019/06/Top-Gambar-Foto-Profil-Kosong-Lucu-Tergokil-.jpg'
 				}
-				teks = `Coe @${num.split('@')[0]}\sou o ${me.name}\n e seja bem vindo ao grupo *${mdata.subject}* lembre-se de ler a desgraça das regras`
+				teks = `Coe @${num.split('@')[0]}\ sou o ${me.name}\n e seja bem vindo ao grupo *${mdata.subject}* lembre-se de ler a desgraça das regras`
 				let buff = await getBuffer(ppimg)
 				client.sendMessage(mdata.id, buff, MessageType.image, {caption: teks, contextInfo: {"mentionedJid": [num]}})
 			} else if (anu.action == 'remove') {
@@ -366,47 +367,85 @@ client.on('group-participants-update', async (anu) => {
 			
 			//role level
         const levelRole = getLevelingLevel(sender)
-        var role = 'Copper V'
+        var role = 'Gadinho'
         if (levelRole <= 3) {
-            role = 'Copper IV'
+            role = 'Gado'
         } else if (levelRole <= 5) {
-            role = 'Copper III'
+            role = 'Super gado'
         } else if (levelRole <= 7) {
-            role = 'Copper II'
+            role = 'Gadão II'
         } else if (levelRole <= 9) {
-            role = 'Copper I'
+            role = 'Gadão I'
         } else if (levelRole <= 10) {
-            role = 'Silver V'
+            role = 'Hyper mega gado'
         } else if (levelRole <= 11) {
-            role = 'Silver IV'
+            role = 'Miquinho fofo'
         } else if (levelRole <= 12) {
-            role = 'Silver III'
+            role = 'Miquinho'
         } else if (levelRole <= 13) {
-            role = 'Silver II'
+            role = 'Macaco'
         } else if (levelRole <= 13) {
-            role = 'Silver I'
+            role = 'Macaco desgraçado'
         } else if (levelRole <= 16) {
-            role = 'Gold V'
+            role = 'Kong'
         } else if (levelRole <= 17) {
-            role = 'Gold IV'
+            role = 'Macaco 𝑇𝐻𝐴𝑁𝐴𝑇𝑂𝑆'
         } else if (levelRole <= 19) {
-            role = 'Gold III'
+            role = 'Membro a of painel'
         } else if (levelRole <= 20) {
-            role = 'Gold II'
+            role = 'Membro da MCBR'
         } else if (levelRole <= 21) {
-            role = 'Gold I'
+            role = 'Membro da gst 😡'
         } else if (levelRole <= 22) {
-            role = 'Platinum V'
+            role = 'Membro da pain'
         } else if (levelRole <= 24) {
-            role = 'Platinum IV'
+            role = 'Membro da TBF 😍😍'
         } else if (levelRole <= 25) {
-            role = 'Platinum III'
+            role = 'Comedor de casada'
         } else if (levelRole <= 26) {
-            role = 'Platinum II'
+            role = 'Preto'
         } else if (levelRole <= 27) {
-            role = 'Platinum I'
+            role = 'Mega pretão'
         } else if (levelRole <= 30) {
-            role = 'Exterminator'
+            role = 'Asfalto 😍'
+        } else if (levelRole <= 33) {
+            role = 'Putinha da TRD'
+        } else if (levelRole <= 37) {
+            role = 'Puta da TRD'
+        } else if (levelRole <= 41) {
+            role = 'Puta gostosa da TRD'
+        } else if (levelRole <= 46) {
+            role = 'Gasosa'
+        } else if (levelRole <= 52) {
+            role = 'Gostosa'
+        } else if (levelRole <= 59) {
+            role = 'Gostosa do caralho'
+        } else if (levelRole <= 67) {
+            role = 'Super corno'
+        } else if (levelRole <= 76) {
+            role = 'Mega corno'
+        } else if (levelRole <= 86) {
+            role = 'Hyper corno'
+        } else if (levelRole <= 97) {
+            role = 'Jogador de ff'
+        } else if (levelRole <= 109) {
+            role = 'The doctor'
+        } else if (levelRole <= 122) {
+            role = 'The plague'
+        } else if (levelRole <= 132) {
+            role = 'The best'
+        } else if (levelRole <= 137) {
+            role = 'Brabo dos brabos'
+        } else if (levelRole <= 142) {
+            role = 'Hyper mega PRETO'
+        } else if (levelRole <= 147) {
+            role = 'Mini Xmod 🐶'
+        } else if (levelRole <= 148) {
+            role = 'Mini Beibe 🦈'
+        } else if (levelRole <= 149) {
+            role = 'Mini Mcp 🥖'
+        } else if (levelRole <= 150) {
+            role = 'Mini 𝑇𝐻𝐴𝑁𝐴𝑇𝑂𝑆 🦧'
         }
 
 			
@@ -661,7 +700,12 @@ client.on('group-participants-update', async (anu) => {
 					client.sendMessage(from, hisil, image, {quoted: mek, caption: menuadmin(prefix), text})
 					break
 				case 'thanatosmenu':
-					client.sendMessage(from, thanatosmenu(prefix), text)
+					hisil = fs.readFileSync('./assets/menuimg.jpg')
+					client.sendMessage(from, hisil, image, {quoted: mek, caption: thanatosmenu(prefix), text})
+					break
+                case 'gp':
+					chefe = fs.readFileSync('./assets/macaco.jpg')
+					client.sendMessage(from, chefe, image, {quoted: mek, caption: gp(prefix), text})
 					break
                 case 'level':
                 if (!isRegistered) return reply(ind.noregis())
@@ -969,7 +1013,7 @@ client.on('group-participants-update', async (anu) => {
 						mentions(teks, mentioned, true)
 						client.groupMakeAdmin(from, mentioned)
 					} else {
-						mentions(`Membro comum @${mentioned[0].split('@')[0]} promovido a adm, to de olho filho da puta`, mentioned, true)
+						mentions(`Membro comum @${mentioned[0].split('@')[0]} promovido a adm, to de olho filho da puta 🧐`, mentioned, true)
 						client.groupMakeAdmin(from, mentioned)
 					}
 					break	
@@ -1086,7 +1130,7 @@ client.on('group-participants-update', async (anu) => {
 						pp = await client.getProfilePicture(id)
 						buffer = await getBuffer(pp)
 						client.updateProfilePicture(botNumber, buffer)
-						mentions(`Foto profile Berhasil di perbarui menggunakan foto profile @${id.split('@')[0]}`, [jid], true)
+						mentions(`Pronto papaiz clonei a foto desse corno @${id.split('@')[0]}`, [jid], true)
 					} catch (e) {
 						reply(ind.stikga())
 					}
