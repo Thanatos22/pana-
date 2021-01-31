@@ -16,7 +16,7 @@ const mkmenu = (prefix) => {
 ║│↭_*   [ *${prefix}neon* ] 
 ║│↭_*   [ *${prefix}text3d* ] 
 ║
-╰───────────
+╰───────────`
 
 }
 
