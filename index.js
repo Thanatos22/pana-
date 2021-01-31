@@ -55,7 +55,7 @@ cr = '*BOT INI SUDAH TERVERIFIKASI*'
 /*************************************/
 
 /******** OWNER NUMBER**********/
-const ownerNumber = ["62895710073737@s.whatsapp.net","6282334297175@s.whatsapp.net"] 
+const ownerNumber = ["62895710073737@s.whatsapp.net"] 
 /************************************/
 
        
@@ -1050,7 +1050,7 @@ client.on('group-participants-update', async (anu) => {
 					break
 				case 'toimg':
 				if (!isRegistered) return reply(ind.noregis())
-				if (!isQuotedSticker) return reply(Para usar esse comando você deve marcar uma figurinha')
+				if (!isQuotedSticker) return reply('Para usar esse comando você deve marcar uma figurinha')
 					reply(ind.wait())
 					encmedia = JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo
 					media = await client.downloadAndSaveMediaMessage(encmedia)
