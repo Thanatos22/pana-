@@ -231,7 +231,7 @@ exports.levelup = (pushname, sender, getLevelingXp,  getLevel, getLevelingLevel,
 ┣⊱ *Número* : wa.me/${sender.split("@")[0]}
 ┣⊱ *Xp* : ${getLevelingXp(sender)}
 ┣⊱ *Limite* : +3
-┣⊱ *Role* :  ${role}
+┣⊱ *Patente* :  ${role}
 ┗⊱ *Level* : ${getLevel} ⊱ ${getLevelingLevel(sender)}
 `}
  
