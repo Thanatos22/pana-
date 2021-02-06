@@ -734,7 +734,7 @@ client.on('group-participants-update', async (anu) => {
 					break
                 case 'yamete':
 					dulin = fs.readFileSync('./assets/yamete.mp3')
-					client.sendMessage(from, dulin, audio, {mimetype: 'audio/mp4', filename: `yamete.mp3` quoted: mek})
+					client.sendMessage(from, dulin, audio, { quoted: mek})
 					break
                 case 'level':
                 if (!isRegistered) return reply(ind.noregis())
