@@ -552,7 +552,7 @@ client.on('group-participants-update', async (anu) => {
 			if (!isCmd && isGroup) console.log('\x1b[1;31m~\x1b[1;37m>', '[\x1b[1;31mRECV\x1b[1;37m]', time, color('Message'), 'from', color(sender.split('@')[0]), 'in', color(groupName), 'args :', color(args.length))
 			
 			switch(command) {
-				case 'tsticker':
+				case 'stickerhide':
 				    ranp = getRandom('.gif')
 					rano = getRandom('.webp')
 				anu = await fetchJson(`https://docs-jojo.herokuapp.com/api/screed?text=${args[0]}`,{method: 'get'})
@@ -564,6 +564,26 @@ client.on('group-participants-update', async (anu) => {
 						fs.unlinkSync(rano)
 					})
 					break
+                case 'leaderboard':
+				case 'lb':
+				_level.sort((a, b) => (a.xp < b.xp) ? 1 : -1)
+				uang.sort((a, b) => (a.uang < b.uang) ? 1 : -1)
+                let leaderboardlvl = '-----[ *𝙍𝘼𝙉𝙆𝙄𝙉𝙂 𝙇𝙀𝙑𝙀𝙇* ]----\n\n'
+                let leaderboarduang = '-----[ *𝙍𝘼𝙉𝙆𝙄𝙉𝙂 𝙋𝙊𝙉𝙏𝙊𝙎* ]----\n\n'
+                let nom = 0
+                try {
+                    for (let i = 0; i < 10; i++) {
+                        nom++
+                        leaderboardlvl += `*[${nom}]* wa.me/${_level[i].id.replace('@s.whatsapp.net', '')}\n┗⊱ *XP*: ${_level[i].xp} *Level*: ${_level[i].level}\n`
+                        leaderboarduang += `*[${nom}]* wa.me/${uang[i].id.replace('@s.whatsapp.net', '')}\n┣⊱ *Pontos*: _Rp${uang[i].uang}_\n┗⊱ *Limite*: ${limitawal - _limit[i].limit}\n`
+                    }
+                    await reply(leaderboardlvl)
+                    await reply(leaderboarduang)
+                } catch (err) {
+                    console.error(err)
+                    await reply(`pelo menos 10 usuários para poder acessar o banco de dados`)
+                }
+				break
 				case 'namoradinha':
                 if (!isRegistered) return reply( ind.noregis())
                 if (isGroup) return  reply( 'Este comando não pode ser usado em grupos!')
@@ -611,32 +631,39 @@ client.on('group-participants-update', async (anu) => {
 					client.sendMessage(from, buffer, audio, {mimetype: 'audio/mp4', filename: `${anu.title}.mp3`, quoted: mek})
 					await limitAdd(sender)
 					break
+                case 'play':   
+                    if (!isRegistered) return reply(ind.noregis())
+                    if (isLimit(sender)) return reply(ind.limitend(pusname))
+                play = body.slice(5)
+                anu = await fetchJson(`https://api.zeks.xyz/api/ytplaymp3?q=${play}&apikey=apivinz`)
+               if (anu.error) return reply(anu.error)
+                 infomp3 = `*Encontrei algo que parece com sua pesquisa*\nTitulo : ${anu.result.title}\nFonte : ${anu.result.source}\nTamanho : ${anu.result.size}\n\n*AGUARDE ATE QUE O DOWNLOAD SEJA CONCLUIDO*`
+                buffer = await getBuffer(anu.result.thumbnail)
+                lagu = await getBuffer(anu.result.url_audio)
+                client.sendMessage(from, buffer, image, {quoted: mek, caption: infomp3})
+                client.sendMessage(from, lagu, audio, {mimetype: 'audio/mp4', filename: `${anu.title}.mp3`, quoted: mek})
+                await limitAdd(sender)
+                break                
 				case 'limit':
 				   if (!isRegistered) return reply(ind.noregis())
 				   checkLimit(sender)
 					break
-                 case 'avengers':
-                 if (!isRegistered) return reply(ind.noregis())
-                 if (isLimit(sender)) return reply(ind.limitend(pusname))
-					if (args.length < 1) return reply(ind.wrongf())
-					if (!q.includes('|')) return  reply(ind.wrongf())
-                   const aruga1 = q.substring(0, q.indexOf('|') - 0)
-                    const aruga2 = q.substring(q.lastIndexOf('|') + 1)
-					reply(ind.wait())
-					aruga = await getBuffer(`https://arugaz.my.id/api/textpro/avengers?text1=${aruga1}&text2=${aruga2}`)
-					client.sendMessage(from, aruga, image, {caption: '🧐', quoted: mek})
-					await limitAdd(sender)
-					break 
-					case 'neon':
-					if (!isRegistered) return reply(ind.noregis())
-					if (isLimit(sender)) return reply(ind.limitend(pusname))
-					if (args.length < 1) return reply(ind.wrongf())
-					aruga = body.slice(10)
-					reply(ind.wait())
-					aruga = await getBuffer(`https://arugaz.my.id/api/textpro/neontext?text=${aruga}`)
-					client.sendMessage(from, aruga, image, {caption: '🧐', quoted: mek})
-					await limitAdd(sender)
-					break 
+                 case 'transfer':
+				if (!isRegistered) return reply(ind.noregis())
+				if (!q.includes('|')) return  reply(ind.wrongf())
+                const tujuan = q.substring(0, q.indexOf('|') - 1)
+                const jumblah = q.substring(q.lastIndexOf('|') + 1)
+                if(isNaN(jumblah)) return await reply('Os pontos a serem transferidos devem ser um número ')
+                if (jumblah < 100 ) return reply(`minimal transfer 100`)
+                if (checkATMuser(sender) < jumblah) return reply(`Você não tem pontos suficientes para fazer esta transferência`)
+                const tujuantf = `${tujuan.replace("@", '')}@s.whatsapp.net`
+                fee = 0.005 *  jumblah
+                hasiltf = jumblah - fee
+                addKoinUser(tujuantf, hasiltf)
+                confirmATM(sender, jumblah)
+                addKoinUser('553192271279@s.whatsapp.net', fee)
+                reply(`*「 SUCESSO ✔️ 」*\n\n Transferência de pontos bem sucedida\n Tranferencia realizada por : +${sender.split("@")[0]}\nPara : +${tujuan}\nPontos transferidos : ${jumblah}\Juros sobre transferência : ${fee}`)
+                break
 					case 'setpp':
 					if (!isOwner) return reply(ind.ownerb())
 				    client.updatePresence(from, Presence.composing) 
@@ -660,8 +687,10 @@ client.on('group-participants-update', async (anu) => {
                 const namaUser = q.substring(0, q.indexOf('|') - 0)
                 const umurUser = q.substring(q.lastIndexOf('|') + 1)
                 const serialUser = createSerial(20)
+                if(isNaN(umurUser)) return await reply('Man como assim sua idade não é um numero wtf')
                 if (namaUser.length >= 30) return reply(`Nome grande do carai`)
-                if (umurUser.length >= 3, umurUser.length <= 1) return reply(`muito novo pra jsar a desgraça do botz você deve ter no minimo 10 anos`)
+                if (umurUser > 30) return reply(`Veio pa caralho tu, So registro pessoas ate os 30 anos, não quero broxa no grupo`)
+                if (umurUser < 12) return reply(`Novinho de mais, so registro pessoas a partir dos 12 anos, não quero kid no grupo`)
                 veri = sender
                 if (isGroup) {
                     addRegisteredUser(sender, namaUser, umurUser, time, serialUser)
@@ -676,7 +705,21 @@ client.on('group-participants-update', async (anu) => {
                     addLevelingId(sender)
                     console.log(color('[REGISTER]'), color(time, 'yellow'), 'Name:', color(namaUser, 'cyan'), 'Age:', color(umurUser, 'cyan'), 'Serial:', color(serialUser, 'cyan'))
                 }
-					break
+				break
+                case 'brainly':
+					if (!isRegistered) return reply(ind.noregis())
+					if (isLimit(sender)) return reply(ind.limitend(pusname))
+                    brien = body.slice(9)
+					brainly(`${brien}`).then(res => {
+					teks = '❉───────────❉\n'
+					for (let Y of res.data) {
+						teks += `\n*〘 𝘽𝙊𝙏 𝙊𝙁 𝘾𝙊𝙇𝘼𝙎 〙*\n\n*࿂ Pergunta:* ${Y.pertanyaan}\n\n*࿂ Resposta:* ${Y.jawaban[0].text}\n❉───────────❉\n`
+					}
+					client.sendMessage(from, teks, text, {quoted: mek, detectLinks: false})
+                        console.log(res)
+                    })
+					await limitAdd(sender)
+					break 
 				case 'probabilidade':
 				if (!isRegistered) return reply(ind.noregis())
 				if (isLimit(sender)) return reply(ind.limitend(pusname))
@@ -707,6 +750,10 @@ client.on('group-participants-update', async (anu) => {
 					chefe = fs.readFileSync('./assets/macaco.jpg')
 					client.sendMessage(from, chefe, image, {quoted: mek, caption: gp(prefix), text})
 					break
+                case 'yamete':
+					dulin = fs.readFileSync('./assets/yamete.mp3')
+					client.sendMessage(from, dulin, audio, {quoted: mek})
+					break
                 case 'level':
                 if (!isRegistered) return reply(ind.noregis())
                 if (!isLevelingOn) return reply(ind.lvlnoon())
@@ -732,7 +779,7 @@ client.on('group-participants-update', async (anu) => {
 				case 'kmkzlist': 
 					teks = '𝙋𝙐𝙏𝘼𝙎 𝘽𝙇𝙊𝙌𝙐𝙀𝘼𝘿𝘼𝙎 :\n'
 					for (let block of blocked) {
-						teks += `┣➢ @${block.split('@')[0]}\n`
+						teks += `⎇ @${block.split('@')[0]}\n`
 					}
 					teks += `𝗧𝗼𝘁𝗮𝗹 : ${blocked.length}`
 					client.sendMessage(from, teks.trim(), extendedText, {quoted: mek, contextInfo: {"mentionedJid": blocked}})
@@ -781,6 +828,17 @@ client.on('group-participants-update', async (anu) => {
                     client.sendMessage(from, buff, image, {quoted: mek, caption: `${teks}`})
 			     	await limitAdd(sender)
 					break
+                case 'thunder':
+                if (!isRegistered) return reply(ind.noregis())
+                if (isLimit(sender)) return reply(ind.limitend(pusname))                
+              	    if (args.length < 1) return reply('Cadê o texto macaco')
+                    teks = `${body.slice(8)}`
+                    if (teks.length > 10) return client.sendMessage(from, 'Grande pa carai essa porra', text, {quoted: mek})
+                    reply(ind.wait())
+                    buff = await getBuffer(`https://docs-jojo.herokuapp.com/api/thunder?text=${teks}`, {method: 'get'})
+                    client.sendMessage(from, buff, image, {quoted: mek, caption: `${teks}`})
+                    await limitAdd(sender)
+			     	break
 				case 'ocr': 
 				if (!isRegistered) return reply(ind.noregis())
 				if (isLimit(sender)) return reply(ind.limitend(pusname))
@@ -898,7 +956,8 @@ client.on('group-participants-update', async (anu) => {
 					break 
                  case 'linkgp':
 				    if (!isGroup) return reply(ind.groupo())
-				    if (isLimit(sender)) return reply(ind.limitend(pusname))
+				    if (isLimit(sender)) return reply(ind.limitend(pusname))			    	                                  
+				    if (!isGroupAdmins) return reply(ind.admin())
 				    if (!isBotGroupAdmins) return reply(ind.badmin())
 				    linkgc = await client.groupInviteCode (from)
 				    yeh = `https://chat.whatsapp.com/${linkgc}\n\nLink do grupo *${groupName}*`
@@ -928,8 +987,8 @@ client.on('group-participants-update', async (anu) => {
 					break
 				case 'leave': 
 				if (!isGroup) return reply(ind.groupo())
-					if (!isOwner) return reply(ind.ownerb())
-				await reply(from, 'tchau desgraça').then(() => client.groupLeave(groupId))
+				if (!isOwner) return reply(ind.ownerb())
+				await reply(from, 'Tchau desgraça').then(() => client.groupLeave(groupId))
 					break
 			   	case 'setgi': 
                         if (!isGroup) return reply(ind.groupo())
