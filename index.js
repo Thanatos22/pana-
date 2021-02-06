@@ -564,26 +564,6 @@ client.on('group-participants-update', async (anu) => {
 						fs.unlinkSync(rano)
 					})
 					break
-                case 'leaderboard':
-				case 'lb':
-				_level.sort((a, b) => (a.xp < b.xp) ? 1 : -1)
-				uang.sort((a, b) => (a.uang < b.uang) ? 1 : -1)
-                let leaderboardlvl = '-----[ *𝙍𝘼𝙉𝙆𝙄𝙉𝙂 𝙇𝙀𝙑𝙀𝙇* ]----\n\n'
-                let leaderboarduang = '-----[ *𝙍𝘼𝙉𝙆𝙄𝙉𝙂 𝙋𝙊𝙉𝙏𝙊𝙎* ]----\n\n'
-                let nom = 0
-                try {
-                    for (let i = 0; i < 10; i++) {
-                        nom++
-                        leaderboardlvl += `*[${nom}]* wa.me/${_level[i].id.replace('@s.whatsapp.net', '')}\n┗⊱ *XP*: ${_level[i].xp} *Level*: ${_level[i].level}\n`
-                        leaderboarduang += `*[${nom}]* wa.me/${uang[i].id.replace('@s.whatsapp.net', '')}\n┣⊱ *Pontos*: _Rp${uang[i].uang}_\n┗⊱ *Limite*: ${limitawal - _limit[i].limit}\n`
-                    }
-                    await reply(leaderboardlvl)
-                    await reply(leaderboarduang)
-                } catch (err) {
-                    console.error(err)
-                    await reply(`pelo menos 10 usuários para poder acessar o banco de dados`)
-                }
-				break
 				case 'namoradinha':
                 if (!isRegistered) return reply( ind.noregis())
                 if (isGroup) return  reply( 'Este comando não pode ser usado em grupos!')
@@ -591,6 +571,22 @@ client.on('group-participants-update', async (anu) => {
                 await reply('Procurando pela sua namoradinha...')
                 await reply(`wa.me/${anug}`)
                 await reply( `Namoradinha encontrada 🙉\n*${prefix}next* — caso não tenha ficado satisfeito com sua namoradinha`)
+            break
+            case 'namoradinho':
+                if (!isRegistered) return reply( ind.noregis())
+                if (isGroup) return  reply( 'Este comando não pode ser usado em grupos!')
+                anug = getRegisteredRandomId(_registered).replace('@s.whatsapp.net','')
+                await reply('Procurando pela sua namoradinho...')
+                await reply(`wa.me/${anug}`)
+                await reply( `Namoradinho encontrada 🙉`)
+            break
+            case 'sorteio':
+                if (!isOwner) return reply(ind.ownerb())
+                if (isGroup) return  reply( 'Este comando não pode ser usado em grupos!')
+                anug = getRegisteredRandomId(_registered).replace('@s.whatsapp.net','')
+                await reply('Ok papai, estou gerando o ganhador do sorteio')
+                await reply(`wa.me/${anug}`)
+                await reply( `Ganhador encontrado 🥳`)
             break
             case 'next':
                 if (!isRegistered) return reply( ind.noregis())
@@ -657,17 +653,17 @@ client.on('group-participants-update', async (anu) => {
                 if (jumblah < 100 ) return reply(`minimal transfer 100`)
                 if (checkATMuser(sender) < jumblah) return reply(`Você não tem pontos suficientes para fazer esta transferência`)
                 const tujuantf = `${tujuan.replace("@", '')}@s.whatsapp.net`
-                fee = 0.005 *  jumblah
+                fee = 0.010 *  jumblah
                 hasiltf = jumblah - fee
                 addKoinUser(tujuantf, hasiltf)
                 confirmATM(sender, jumblah)
                 addKoinUser('553192271279@s.whatsapp.net', fee)
-                reply(`*「 SUCESSO ✔️ 」*\n\n Transferência de pontos bem sucedida\n Tranferencia realizada por : +${sender.split("@")[0]}\nPara : +${tujuan}\nPontos transferidos : ${jumblah}\Juros sobre transferência : ${fee}`)
+                reply(`*「 SUCESSO ✔️ 」*\n\n Transferência de pontos bem sucedida\n Tranferencia realizada por : +${sender.split("@")[0]}\nPara : +${tujuan}\nPontos transferidos : ${jumblah}\nImposto sobre transferência : ${fee}`)
                 break
 					case 'setpp':
 					if (!isOwner) return reply(ind.ownerb())
 				    client.updatePresence(from, Presence.composing) 
-					if (!isQuotedImage) return reply(`Kirim gambar dengan caption ${prefix}setbotpp atau tag gambar yang sudah dikirim`)
+					if (!isQuotedImage) return reply(`Envie fotos com legendas ${prefix}setbotpp ou marque uma imagem que já foi enviadas`)
 					enmedia = JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo
 					media = await client.downloadAndSaveMediaMessage(enmedia)
 					await client.updateProfilePicture(botNumber, media)
@@ -706,25 +702,11 @@ client.on('group-participants-update', async (anu) => {
                     console.log(color('[REGISTER]'), color(time, 'yellow'), 'Name:', color(namaUser, 'cyan'), 'Age:', color(umurUser, 'cyan'), 'Serial:', color(serialUser, 'cyan'))
                 }
 				break
-                case 'brainly':
-					if (!isRegistered) return reply(ind.noregis())
-					if (isLimit(sender)) return reply(ind.limitend(pusname))
-                    brien = body.slice(9)
-					brainly(`${brien}`).then(res => {
-					teks = '❉───────────❉\n'
-					for (let Y of res.data) {
-						teks += `\n*〘 𝘽𝙊𝙏 𝙊𝙁 𝘾𝙊𝙇𝘼𝙎 〙*\n\n*࿂ Pergunta:* ${Y.pertanyaan}\n\n*࿂ Resposta:* ${Y.jawaban[0].text}\n❉───────────❉\n`
-					}
-					client.sendMessage(from, teks, text, {quoted: mek, detectLinks: false})
-                        console.log(res)
-                    })
-					await limitAdd(sender)
-					break 
 				case 'probabilidade':
 				if (!isRegistered) return reply(ind.noregis())
 				if (isLimit(sender)) return reply(ind.limitend(pusname))
 					rate = body.slice(1)
-					const ra =['4','9','17','28','34','48','59','62','74','83','97','100','29','94','75','82','41','39']
+					const ra =['0','4','9','17','28','34','48','59','62','74','83','97','100','29','94','75','82','41','39']
 					const te = ra[Math.floor(Math.random() * ra.length)]
 					client.sendMessage(from, 'Comando : *'+rate+'*\n\nResultado : '+ te+'%', text, { quoted: mek })
 					await limitAdd(sender)
@@ -752,7 +734,7 @@ client.on('group-participants-update', async (anu) => {
 					break
                 case 'yamete':
 					dulin = fs.readFileSync('./assets/yamete.mp3')
-					client.sendMessage(from, dulin, audio, {quoted: mek})
+					client.sendMessage(from, dulin, audio, {mimetype: 'audio/mp4', filename: `yamete.mp3` quoted: mek})
 					break
                 case 'level':
                 if (!isRegistered) return reply(ind.noregis())
