@@ -680,14 +680,12 @@ client.on('group-participants-update', async (anu) => {
                     await reply(ind.registered(namaUser, umurUser, serialUser, time, sender))
                     addATM(sender)
                     addLevelingId(sender)
-                    checkLimit(sender)
                     console.log(color('[REGISTER]'), color(time, 'yellow'), 'Name:', color(namaUser, 'cyan'), 'Age:', color(umurUser, 'cyan'), 'Serial:', color(serialUser, 'cyan'), 'in', color(sender || groupName))
                 } else {
                     addRegisteredUser(sender, namaUser, umurUser, time, serialUser)
-                    await client.sendMessage(from, ppimg, image, {quoted: mek, caption: ind.registered(namaUser, umurUser, serialUser, time, sender)})
+                    await reply(ind.registered(namaUser, umurUser, serialUser, time, sender))
                     addATM(sender)
                     addLevelingId(sender)
-                    checkLimit(sender)
                     console.log(color('[REGISTER]'), color(time, 'yellow'), 'Name:', color(namaUser, 'cyan'), 'Age:', color(umurUser, 'cyan'), 'Serial:', color(serialUser, 'cyan'))
                 }
 				break
