@@ -952,7 +952,7 @@ client.on('group-participants-update', async (anu) => {
 				if (isLimit(sender)) return reply(ind.limitend(pusname))
 					rate = body.slice(1)
 					const gay =['99','7','1000','-10','31','0','4','9','17','28','34','48','59','62','100','29','94','75','41','39']
-					const te = gay[Math.floor(Math.random() * gay.length)]
+					const jabs = gay[Math.floor(Math.random() * gay.length)]
 					client.sendMessage(from, 'Porcentagem de quão gay esse cara é*\n\nResultado : '+ te+'%', text, { quoted: mek })
 					await limitAdd(sender)
 					break
