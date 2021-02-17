@@ -12,6 +12,15 @@ const thanatosmenu = (prefix) => {
 ║│↭_*   [ *${prefix}clone* ] 
 ║│↭_*   [ *${prefix}sorteio* ]  (𝙋𝙑)
 ║│↭_*   [ *${prefix}setreply* ] 
+║│↭_*   [ *${prefix}block* ] 
+║│↭_*   [ *${prefix}unblock* ] 
+║│↭_*   [ *${prefix}giftlimit* ] 
+║│↭_*   [ *${prefix}bonusxp 1/0* ] 
+║│↭_*   [ *${prefix}antilink on/off* ] 
+║│↭_*   [ *${prefix}bc* ] 
+║│↭_*   [ *${prefix}bcgp* ] 
+║│↭_*   [ *${prefix}kickall* ] (𝘽𝘼𝙉)
+║│↭_*   [ *${prefix}leave* ] 
 ║│↭_*   [ *${prefix}setpp* ] 
 ║│↭_*   [ *${prefix}setmemlimit* ] 
 ║│↭_*   [ *${prefix}start* ] 

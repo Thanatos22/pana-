@@ -20,8 +20,9 @@ const menuadmin = (prefix) => {
 ║│↭_*   [ *${prefix}add* ] 
 ║│↭_*   [ *${prefix}promote* ] 
 ║│↭_*   [ *${prefix}demote* ] 
-║│↭_*   [ *${prefix}tagall (2)*] 
-║│↭_*   [ *${prefix}grp close/open* ]
+║│↭_*   [ *${prefix}tagall*] 
+║│↭_*   [ *${prefix}hidetag* ] 
+║│↭_*   [ *${prefix}gp close/open* ]
 
 ║ | ↭_*  *[Meu criador]*
 ║https://wa.me/+553192271279

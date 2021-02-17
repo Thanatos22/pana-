@@ -15,7 +15,11 @@ const help = (prefix) => {
 ║│↭_*   [ *${prefix}transfer* ] 
 ║│↭_*   [ *${prefix}carteira* ] 
 ║│↭_*   [ *${prefix}level* ] 
+║│↭_*   [ *${prefix}minerar* ] 
 ║│↭_*   [ *${prefix}hour* ] 
+║│↭_*   [ *${prefix}yamete* ] 
+║│↭_*   [ *${prefix}chavinho* ] 
+║│↭_*   [ *${prefix}listonline* ] 
 ║│↭ _*  [ *${prefix}dono* ] 
 ║│↭_*   [ *${prefix}menuadmin*]
 ║│↭_*   [ *${prefix}thanatosmenu*]
@@ -26,7 +30,8 @@ const help = (prefix) => {
 ║│↭_*   [ *${prefix}namoradinha* ]  (𝙋𝙑)
 ║│↭_*   [ *${prefix}namoradinho* ]  (𝙋𝙑)
 ║│↭_*   [ *${prefix}next* ]  (𝙋𝙑)
-║│↭_*   [ *${prefix}probabilidade* ] 
+║│↭_*   [ *${prefix}probabilidade* ]
+║│↭_*   [ *${prefix}%gay* ] 
 ║│↭ _*  [ *${prefix}kmkzlist* ] 
 ║│↭ _*  [ *${prefix}ocr* ] 
 ║│↭_*   [ *${prefix}ytmp4* ] 
