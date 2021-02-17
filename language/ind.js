@@ -7,19 +7,19 @@ exports.succes = () => {
 }
 
 exports.lvlon = () => {
-	return`*Pronto macaco, recurso de level ativado*`
+	return`*Função level ativada*`
 }
 
 exports.lvloff = () => {
-	return`*Pronto macaco, recurso de level desativado*`
+	return`*Função level desativada*`
 }
 
 exports.lvlnul = () => {
-	return`*Tu nem level tem ainda ksksksksk*`
+	return`*Porra manin, tu nem level tem ainda*`
 }
 
 exports.lvlnoon = () => {
-	return`*ERROR NAO FOI POSSÍVEL ATIVAR O RECURSO DE LEVEL NESTE GRUPO*`
+	return`*Oporra função de level não ta ativada aqui*`
 }
 
 exports.noregis = () => {
@@ -35,11 +35,11 @@ exports.stikga = () => {
 }
 
 exports.linkga = () => {
-	return`*Link invalido macaco*`
+	return`*Link invalido*`
 }
 
 exports.groupo = () => {
-	return`*Este comando so pode ser utilizado em grupos*`
+	return`*「Este comando so pode ser usado em grupos」*`
 }
 
 exports.ownerb = () => {
@@ -47,15 +47,15 @@ exports.ownerb = () => {
 }
 
 exports.ownerg = () => {
-	return`*Somente o dono do grupo pode usar este comando*`
+	return`*「 𝙎𝙊𝙈𝙀𝙉𝙏𝙀 𝙊 𝘿𝙊𝙉𝙊 𝘿𝙊 𝙂𝙍𝙐𝙋𝙊 𝙋𝙊𝘿𝙀 𝙐𝙎𝘼𝙍 𝙀𝙎𝙏𝙀 𝘾𝙊𝙈𝘼𝙉𝘿𝙊 」*`
 }
 
 exports.admin = () => {
-	return`*Somente os adms do grupo podem usar este comando*`
+	return`*「 𝙎𝙊𝙈𝙀𝙉𝙏𝙀 𝘼𝘿𝙈𝙄𝙉𝙄𝙎𝙏𝙍𝘼𝘿𝙊𝙍𝙀𝙎 𝘿𝙊 𝙂𝙍𝙐𝙋𝙊 𝙋𝙊𝘿𝙀𝙈 𝙐𝙎𝘼𝙍 𝙀𝙎𝙎𝙀 𝘾𝙊𝙈𝘼𝙉𝘿𝙊 」*`
 }
 
 exports.badmin = () => {
-	return`*Para usar esse comando o bot deve ser adm*`
+	return`*「 𝙋𝘼𝙍𝘼 𝙐𝙎𝘼𝙍 𝙀𝙎𝙏𝙀 𝘾𝙊𝙈𝘼𝙉𝘿𝙊 𝙊 𝘽𝙊𝙏 𝘿𝙀𝙑𝙀 𝙎𝙀𝙍 𝙐𝙈 𝘿𝙊𝙎 𝘼𝘿𝙈𝙄𝙉𝙄𝙎𝙏𝙍𝘼𝘿𝙊𝙍𝙀𝙎 」*`
 }
 
 exports.nsfwoff = () => {
@@ -71,115 +71,122 @@ exports.wrongf = () => {
 }
 
 exports.clears = () => {
-	return`*Pronto papai, apaguei todos os meus chats*`
+	return`*Pronto papai, limpei todos os meus chats*`
 }
 
 exports.pc = () => {
-	return`*Algo de errado não esta certo*`
+	return`*「 REGISTRASI 」*\n\n verifique a mensagem que eu enviei para ter certeza do seu cadastro \n\nNOTE:\n*se você não entendeu a mensagem. significa que você não salvou o número de serie na hora do cadastro*`
 }
 
 exports.registered = (namaUser, umurUser, serialUser, time, sender) => {
-	return`*Pronto realizei seu cadastro \n\n┏━⊱Nome\n┗⊱${namaUser}\n┏━⊱Numero\n┗⊱wa.me/${sender.split("@")[0]}\n┏━⊱Idade do usuario\n┗⊱${umurUser}\n┏━⊱Data e hora do cadastro\n┗⊱${time}\n\n┏━❉ *Numero de serie do usuário* ❉━\n┣⊱${serialUser}\n┗⊱NOTE : não se esqueça deste número`
+	return`*「 𝙍𝙀𝙂𝙄𝙎𝙏𝙍𝘼𝘿𝙊 ✅ 」*\n\nNovo registro de usuário realizado com sucesso \n\n┏━⊱nome\n┗⊱${namaUser}\n┏━⊱numero\n┗⊱wa.me/${sender.split("@")[0]}\n┏━⊱idade do usuário\n┗⊱${umurUser}\n┏━⊱data e hora em que foi realizado cadastro\n┗⊱${time}\n\n┏━❉ *Numero de serie do usuário cadastrado* ❉━\n┣⊱${serialUser}\n┗⊱NOTE : NÃO SE ESQUEÇA DESSE NÚMERO`
 }
 
 exports.cmdnf = (prefix, command) => {
-	return`command *${prefix}${command}* tidak di temukan\coba tulis *${prefix}menu*`
+	return`command *${prefix}${command}* não encontrado para ver meus comandos basta enviar *${prefix}menu*`
 }
 
 exports.owneresce = (pushname) => {
-	return`*Você não é meu papai 😡*`
+	return`*Desculpe, mas ${pushname} não é o dono do bot*`
 }
 
 exports.reglevelaha = (command, pushname, getLevelingLevel, sender, aha) => {
-	return`*${pushname} Você ainda não chegou no level onde essa função é desbloqueada*\n\n*┏⊱Seu Level: ${getLevelingLevel(sender)}*\n*┣⊱comando: ${command}*\n*┗⊱Level necessário: ${aha}*\n\n_NOTE: PARA SUBIR DE NIVEL E PODER USAR ESTE COMANDO, FIQUE ATIVO  E PROCURE INTERAGIR NOS GRUPOS ONDE O BOT ESTÁ_`
+	return`*Desculpe ${pushname} seu nível não é suficiente*\n\n*┏⊱seu level : ${getLevelingLevel(sender)}*\n*┣⊱tipo de comando : ${command}*\n*┗⊱level necessário : ${aha}*\n\n_NOTE : Para obter xp interaja nos grupos onde o bot esta_`
 }
 
 exports.reglevelahb = (command, pushname, getLevelingLevel, sender, ahb) => {
-	return`*${pushname} Você ainda não chegou no level onde essa função é desbloqueada*\n\n*┏⊱Seu Level: ${getLevelingLevel(sender)}*\n*┣⊱comando: ${command}*\n*┗⊱Level necessário: ${ahb}*\n\n_NOTE: PARA SUBIR DE NIVEL E PODER USAR ESTE COMANDO, FIQUE ATIVO  E PROCURE INTERAGIR NOS GRUPOS ONDE O BOT ESTÁ_`
+	return`*Desculpe ${pushname} seu Level não é suficiente*\n\n*┏⊱seu level : ${getLevelingLevel(sender)}*\n*┣⊱tipo de comando : ${command}*\n*┗⊱level nescessário : ${ahb}*\n\n_NOTE : Para obter xp interaja nos grupos onde o bot está_`
 }
 
 exports.reglevelahc = (command, pushname, getLevelingLevel, sender, ahc) => {
-	return`*${pushname} Você ainda não chegou no level onde essa função é desbloqueada*\n\n*┏⊱Seu Level: ${getLevelingLevel(sender)}*\n*┣⊱comando: ${command}*\n*┗⊱Level necessário: ${ahc}*\n\n_NOTE: PARA SUBIR DE NIVEL E PODER USAR ESTE COMANDO, FIQUE ATIVO  E PROCURE INTERAGIR NOS GRUPOS ONDE O BOT ESTÁ_`
+	return`*Desculpe ${pushname} seu Level não é suficiente*\n\n*┏⊱seu level : ${getLevelingLevel(sender)}*\n*┣⊱tipo de comando : ${command}*\n*┗⊱level nescessário : ${ahc}*\n\n_NOTE : Para obter xp interaja nos grupos onde o bot está_`
 }
 
 exports.reglevelahd = (command, pushname, getLevelingLevel, sender, ahd) => {
-	return`*${pushname} Você ainda não chegou no level onde essa função é desbloqueada*\n\n*┏⊱Seu Level: ${getLevelingLevel(sender)}*\n*┣⊱comando: ${command}*\n*┗⊱Level necessário: ${ahd}*\n\n_NOTE: PARA SUBIR DE NIVEL E PODER USAR ESTE COMANDO, FIQUE ATIVO  E PROCURE INTERAGIR NOS GRUPOS ONDE O BOT ESTÁ_`
+	return`*Desculpe ${pushname} seu Level não é suficiente*\n\n*┏⊱seu level : ${getLevelingLevel(sender)}*\n*┣⊱tipo de comando : ${command}*\n*┗⊱level nescessário : ${ahd}*\n\n_NOTE : Para obter xp interaja nos grupos onde o bot está_`
 }
 
 exports.reglevelahe = (command, pushname, getLevelingLevel, sender, ahe) => {
-	return`*${pushname} Você ainda não chegou no level onde essa função é desbloqueada*\n\n*┏⊱Seu Level: ${getLevelingLevel(sender)}*\n*┣⊱comando: ${command}*\n*┗⊱Level necessário: ${ahe}*\n\n_NOTE: PARA SUBIR DE NIVEL E PODER USAR ESTE COMANDO, FIQUE ATIVO  E PROCURE INTERAGIR NOS GRUPOS ONDE O BOT ESTÁ_`
+	return`*Desculpe ${pushname} seu Level não é suficiente*\n\n*┏⊱seu level : ${getLevelingLevel(sender)}*\n*┣⊱tipo de comando : ${command}*\n*┗⊱level nescessário : ${ahe}*\n\n_NOTE : Para obter xp interaja nos grupos onde o bot está_`
 }
 
 exports.reglevelahf = (command, pushname, getLevelingLevel, sender, ahf) => {
-	return`*${pushname} Você ainda não chegou no level onde essa função é desbloqueada*\n\n*┏⊱Seu Level: ${getLevelingLevel(sender)}*\n*┣⊱comando: ${command}*\n*┗⊱Level necessário: ${ahf}*\n\n_NOTE: PARA SUBIR DE NIVEL E PODER USAR ESTE COMANDO, FIQUE ATIVO  E PROCURE INTERAGIR NOS GRUPOS ONDE O BOT ESTÁ_`
+	return`*Desculpe ${pushname} seu Level não é suficiente*\n\n*┏⊱seu level : ${getLevelingLevel(sender)}*\n*┣⊱tipo de comando : ${command}*\n*┗⊱level nescessário : ${ahf}*\n\n_NOTE : Para obter xp interaja nos grupos onde o bot está_`
 }
 
-exports.menu = (pushname, prefix, getLevelingLevel, getLevelingXp, sender, reqXp, _registered, uangku, role) => { 
+exports.menu = (pushname, prefix, getLevelingLevel, getLevelingXp, sender, reqXp, _registered, uangku, role, premi) => { 
 	return `
-┏━━━⊱  *SOBRE O USUÁRIO*  ⊰━━┓
-┣⊱ *Nome* : ${pushname}
-┣⊱ *Número* : wa.me/${sender.split("@")[0]}
-┣⊱ *Pontos* : Rp${uangku}
-┣⊱ *XP* : ${getLevelingXp(sender)}/${reqXp}
-┣⊱ *Role* : ${role}
+┏━━━⊱  *ABOUT USER*  ⊰━━┓
+┣⊱ *Nama* : ${pushname}
+┣⊱ *Premium* : ${premi}
+┣⊱ *Nomer* : wa.me/${sender.split("@")[0]}
+┣⊱ *Uang mu* : Rp${uangku}
+┣⊱ *XP* : ${getLevelingXp(sender)}/${reqXp} 
 ┣⊱ *Level* : ${getLevelingLevel(sender)}
-┣⊱ *Usuario registrado* : ${_registered.length}
-┗━━━⊱  ⸨ *THANATOS* ⸩  ⊰━━━━┛
+┣⊱ *Role* : ${role}
+┣⊱ *User register* : ${_registered.length}
+┗━━━⊱  ⸨ *𝙏𝙃𝘼𝙉𝘼𝙏𝙊𝙎* ⸩  ⊰━━━━┛
 
+ *${prefix}info*
+ *${prefix}donasi*
+ *${prefix}owner*
 
 ┏━━⊱ *MAKER MENU* ⊰━━┓
 ┣⊱ *${prefix}sticker* 
-┣⊱ *${prefix}avengers* <teks|teks>
-┣⊱ *${prefix}summer* <teks>
-┣⊱ *${prefix}sandwrite* <teks>
-┣⊱ *${prefix}metaldark* <teks>
-┣⊱ *${prefix}dropwater* <teks>
-┣⊱ *${prefix}greenneon* <teks>
-┣⊱ *${prefix}neontext* <teks>
-┣⊱ *${prefix}sumery* <teks>
-┣⊱ *${prefix}blood* <teks>
-┣⊱ *${prefix}firework* <teks>
-┣⊱ *${prefix}lava* <teks>
-┣⊱ *${prefix}qrcode* <teks>
+┣⊱ *${prefix}quotemaker* <text|author>
+┣⊱ *${prefix}qrcode* <text>
+┣⊱ *${prefix}ttp*
+┣⊱ *${prefix}stickerhide* <text>
+┣⊱ *${prefix}emoji*
 ┣━━⊱  *FUN MENU*  ⊰━━━┫
-┣⊱ *${prefix}mining*
+┣⊱ *${prefix}lirik* <text>
+┣⊱ *${prefix}artinama>
+┣⊱ *${prefix}chord* <text>
 ┣⊱ *${prefix}bisakah* <teks>
 ┣⊱ *${prefix}kapankah* <teks>
 ┣⊱ *${prefix}apakah* <teks>
 ┣⊱ *${prefix}rate* <teks>
 ┣⊱ *${prefix}slap*
 ┣⊱ *${prefix}tampar*
-┣⊱ *${prefix}moddroid* <teks>
-┣⊱ *${prefix}happymod* <teks>
-┣⊱ *${prefix}nangis*
-┣⊱ *${prefix}cium*
-┣⊱ *${prefix}peluk*
+┣⊱ *${prefix}moddroid* <teks> *[VIP]*
+┣⊱ *${prefix}happymod* <teks> *[VIP]*
 ┣━━⊱ *MUTUAL* ⊰━━━━━┫
 ┣⊱ *${prefix}mutual*
 ┣⊱ *${prefix}next*
 ┣━━⊱ *MEDIA MENU* ⊰━━┫
-┣⊱ *${prefix}brainly* [error]
+┣⊱ *${prefix}brainly* *[VIP]*
 ┣⊱ *${prefix}pinterest*
 ┣⊱ *${prefix}resepmasakan* <teks>
 ┣⊱ *${prefix}igstalk* <username>
 ┣⊱ *${prefix}bitly* <link>
+┣⊱ *${prefix}tiktok* <username> *[VIP]*
+┣⊱ *${prefix}tiktokstalk* <username> *[VIP]*
+┣⊱ *${prefix}ssweb* <link>
+┣⊱ *${prefix}kbbi* <text>
 ┣━━⊱ *YT & SONG* ⊰━━━┫
-┣⊱ *${prefix}ytmp3* <link>
-┣⊱ *${prefix}ytmp4* <link>
-┣⊱ *${prefix}joox* <judul>
+┣⊱ *${prefix}ytmp3* <link> *[VIP]*
+┣⊱ *${prefix}ytmp4* <link> *[VIP]*
+┣⊱ *${prefix}joox* <judul> *[VIP]*
 ┣━━⊱  *NSFW MENU*  ⊰━┫
 ┣⊱ *${prefix}anjing*
 ┣⊱ *${prefix}blowjob*
 ┣⊱ *${prefix}nekonime*
+┣⊱ *${prefix}pokemon*
 ┣⊱ *${prefix}husbu*
+┣⊱ *${prefix}nangis*
+┣⊱ *${prefix}cium*
+┣⊱ *${prefix}peluk*
 ┣⊱ *${prefix}ranime*
 ┣━━⊱ *LIMIT & UANG* ⊰━┫
 ┣⊱ *${prefix}limit* 
 ┣⊱ *${prefix}buylimit* <jumblah>
 ┣⊱ *${prefix}transfer* <tag |jumblah>
 ┣⊱ *${prefix}dompet*
+┣⊱ *${prefix}giftlimit* <tag jumblah>
+┣⊱ *${prefix}leaderboard* <jumblah>
 ┣━━⊱ *GROUP MENU* ⊰━┫
 ┣⊱ *${prefix}hidetag*
+┣⊱ *${prefix}blocklist*
 ┣⊱ *${prefix}grouplist*
 ┣⊱ *${prefix}level*
 ┣⊱ *${prefix}linkgc*
@@ -226,31 +233,50 @@ exports.menu = (pushname, prefix, getLevelingLevel, getLevelingXp, sender, reqXp
 
 exports.levelup = (pushname, sender, getLevelingXp,  getLevel, getLevelingLevel, role) => {
 	return`
-*「 PARABÉNS 🥳 」*
+*「 𝙋𝘼𝙍𝘼𝘽𝙀𝙉𝙎 🥳 」*
 ┏⊱ *Nome* : ${pushname}
 ┣⊱ *Número* : wa.me/${sender.split("@")[0]}
 ┣⊱ *Xp* : ${getLevelingXp(sender)}
 ┣⊱ *Limite* : +3
-┣⊱ *Patente* :  ${role}
+┣⊱ *Patente*: ${role}
 ┗⊱ *Level* : ${getLevel} ⊱ ${getLevelingLevel(sender)}
 `}
  
 exports.limitend = (pushname) => {
-	return`*${pushname} Seu limite de comandos expirou*\n*consiga mais comandos subindo de nivel ou comprando com seus pontos*`
+	return`*${pushname} Você faliukkkkk acabou seu limite de comandos diario*\n*consiga mais comandos subindo de nivel ou comprando com seus pontos*`
 }
 
 exports.limitcount = (limitCounts) => {
 	return`
-*「 LIMITE」*
+*「 𝙇𝙄𝙈𝙄𝙏𝙀」*
 Seu limite restante é de : ${limitCounts}
 
-NOTE : Para conseguir mais comandos suba de level ou compre mais comandos com seus pontos `
+NOTE : Para conseguir mais comandos suba de level ou compre mais comandos com seus pontos`
 }
 
 exports.satukos = () => {
-	return`*Faz essa porra direito macaco`
+	return`*Faz saporra direito macaco`
 }
 
 exports.uangkau = (pushname, sender, uangkau) => {
-	return`*┏⊱ 「 CARTEIRA DE PONTOS 」⊰━┓*\n┣⊱ *Nome* : ${pushname}\n┣⊱ *Número* : ${sender.split("@")[0]}\n┣⊱ *Pontos* : ${uangkau}\n┗━━━━━━━━━━`
+	return`*┏⊱ 「 𝘾𝘼𝙍𝙏𝙀𝙄𝙍𝘼 𝘿𝙀 𝙋𝙊𝙉𝙏𝙊𝙎 💵 」⊰━┓*\n┣⊱ *Nome* : ${pushname}\n┣⊱ *Número* : ${sender.split("@")[0]}\n┣⊱ *Pontos* : ${uangkau}\n┗━━━━━━━━━━`
 }
+
+exports.premadd = (pnom) => {
+	return`*「 𝙈𝙊𝘿𝙀𝙍𝘼𝘿𝙊𝙍/𝙋𝙍𝙀𝙈 𝘼𝘿𝙄𝘾𝙄𝙊𝙉𝘼𝘿𝙊 ✅ 」*
+
+*Nome* : ${pnom}
+*Você deixara de ser moderador em* : 30 dias*`
+}
+
+exports.dellprem = (hnom) => {
+	return`*「 𝙈𝙊𝘿𝙀𝙍𝘼𝘿𝙊𝙍/𝙋𝙍𝙀𝙈𝙄𝙐𝙈 𝙍𝙀𝙈𝙊𝙑𝙄𝘿𝙊 」*
+
+*Nome* : ${hnom}
+*Você deixou de ser moderador*\n*Obrigado pelos serviços prestados*`
+}
+
+exports.premon = (pushname) => {
+	return`Desculpe ${pushname} você não tem autorização moderador ou premium`
+}
+
