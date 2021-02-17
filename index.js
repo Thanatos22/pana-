@@ -677,7 +677,7 @@ client.on('group-participants-update', async (anu) => {
                 veri = sender
                 if (isGroup) {
                     addRegisteredUser(sender, namaUser, umurUser, time, serialUser)
-                    await client.sendMessage(from, ppimg, image, {quoted: mek, caption: ind.registered(namaUser, umurUser, serialUser, time, sender)})
+                    await reply(ind.registered(namaUser, umurUser, serialUser, time, sender))
                     addATM(sender)
                     addLevelingId(sender)
                     checkLimit(sender)
@@ -760,10 +760,6 @@ client.on('group-participants-update', async (anu) => {
 			     	await limitAdd(sender)
 				break
 				//auto respond 
-				case 'ping':
-          		if (!isRegistered) return reply(ind.noregis())
-           		 await client.sendMessage(from, `Velocidade das minhas respostas: ${processTime(time, moment())} _Second_`)
-					break
                case 'help':
 				case 'menu':
 					hisil = fs.readFileSync('./assets/menuimg.jpg')
@@ -953,7 +949,7 @@ client.on('group-participants-update', async (anu) => {
 					rate = body.slice(1)
 					const gay =['99','7','1000','-10','31','0','4','9','17','28','34','48','59','62','100','29','94','75','41','39']
 					const jabs = gay[Math.floor(Math.random() * gay.length)]
-					client.sendMessage(from, 'Porcentagem de quão gay esse cara é*\n\nResultado : '+ te+'%', text, { quoted: mek })
+					client.sendMessage(from, 'Porcentagem de quão gay esse cara é*\n\nResultado : '+ jabs+'%', text, { quoted: mek })
 					await limitAdd(sender)
 					break
 				case 'ocr': 
@@ -1223,7 +1219,7 @@ client.on('group-participants-update', async (anu) => {
 				break      
 				case 'mod':
 					if (!isGroup) return reply(ind.groupo())
-					if (!isprem) return reply(ind.premon(pushname))
+					if (!isPrem) return reply(ind.premon(pushname))
 					if (!isBotGroupAdmins) return reply(ind.badmin())
 					if (args[0] === 'open') {
 					    reply(`Grupo aberto com sucesso`)
@@ -1348,23 +1344,6 @@ client.on('group-participants-update', async (anu) => {
                  	   reply(ind.satukos())
                 	}
 				break 
-				case 'nobadword':
-                    if (!isGroup) return reply(ind.groupo())
-                if (!isGroupAdmins) return reply(ind.admin())
-                if (args.length < 1) return reply('Man tu tem que escolher entre on (ativar) e off (desativar)')
-                if (args[0] === 'on') {
-                if (isBadWord) return reply('*Ja ta ativado macaco*')
-                 	   badword.push(from)
-                 	   fs.writeFileSync('./database/group/badword.json', JSON.stringify(badword))
-                  	   reply(`Recurso de anti palavrões ativado`)
-              	  } else if (args[0] === 'off') {
-                  	  badword.splice(from, 1)
-                 	   fs.writeFileSync('./database/group/badword.json', JSON.stringify(badword))
-                 	    reply(`Recurso de anti palavrões desativado`)
-             	   } else {
-                 	   reply(ind.satukos())
-                	}
-                    break
 				case 'linkgc':
 				    if (!isGroup) return reply(ind.groupo())
 				    if (!isGroupAdmins) return reply(ind.admin())
@@ -1392,33 +1371,7 @@ client.on('group-participants-update', async (anu) => {
 						if (!isGroup) return reply(ind.groupo())
 				     	if (!isGroupAdmins) return reply(ind.admin())
 						client.deleteMessage(from, { id: mek.message.extendedTextMessage.contextInfo.stanzaId, remoteJid: from, fromMe: true })
-						break
-				case 'addbadword':
-                    if (!isOwner) return reply(ind.ownerb())
-                    if (!isGroupAdmins) return reply(ind.admin())
-                    if (args.length < 1) return reply( `Formato incorreto/texto inválido. exemplo ${prefix}addbadword puta`)
-                    const bw = body.slice(12)
-                    bad.push(bw)
-                    fs.writeFileSync('./database/group/bad.json', JSON.stringify(bad))
-                    reply('pronto macaco adicionei esse palavrão a minha lista')
-                    break
-                case 'delbadword':
-                    if (!isOwner) return reply(ind.ownerb())
-                    if (!isGroupAdmins) return reply(ind.admin())
-                    if (args.length < 1) return reply( `Formato incorreto/texto inválido. exemplo ${prefix}delbadword puta`)
-                    let dbw = body.slice(12)
-                    bad.splice(dbw)
-                    fs.writeFileSync('./database/group/bad.json', JSON.stringify(bad))
-                    reply('Pronto macaco, removi esse palavrão da minha lista')
-                    break 
-                case 'listpalavrões':
-                    let lbw = `𝙇𝙄𝙎𝙏𝘼 𝘿𝙀 𝙋𝘼𝙇𝘼𝙑𝙍𝙊𝙀𝙎\nTotal : ${bad.length}\n`
-                    for (let i of bad) {
-                        lbw += `➸ ${i.replace(bad)}\n`
-                    }
-                    await reply(lbw)
-                    break 
-                
+						break                
 				//admin feature 
 				case 'kickall':
                     if (!isOwner) return reply(ind.ownerb())
