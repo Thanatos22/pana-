@@ -1169,7 +1169,7 @@ client.on('group-participants-update', async (anu) => {
 				case 'minerar':
                       if (!isRegistered) return reply(ind.noregis())
                       if (isLimit(sender)) return reply(ind.limitend(pushname))
-                      if (!isEventon) return reply(`maaf ${pushname} event mining tidak di aktifkan oleh owner`)
+                      if (!isEventon) return reply(`pora ${pushname} a mineração de pontos não foi ativada pelo meu papai`)
                       if (isOwner) {
                       const one = 99999999999
                       addLevelingXp(sender, one)
