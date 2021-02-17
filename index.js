@@ -942,7 +942,7 @@ client.on('group-participants-update', async (anu) => {
 				if (!isRegistered) return reply(ind.noregis())
 				if (isLimit(sender)) return reply(ind.limitend(pusname))
 					rate = body.slice(1)
-					const ra =['99','7','1000','-10','31','0','4','9','17','28','34','48','59','62','83','97','100','29','94','75','41','39']
+					const ra =['99','7','1000','-10','31','0','4','9','17','28','34','48','59','62','97','100','29','94','75','41','39']
 					const te = ra[Math.floor(Math.random() * ra.length)]
 					client.sendMessage(from, 'Comando : *'+rate+'*\n\nResultado : '+ te+'%', text, { quoted: mek })
 					await limitAdd(sender)
@@ -951,7 +951,7 @@ client.on('group-participants-update', async (anu) => {
 				if (!isRegistered) return reply(ind.noregis())
 				if (isLimit(sender)) return reply(ind.limitend(pusname))
 					rate = body.slice(1)
-					const ra =['99','7','1000','-10','31','0','4','9','17','28','34','48','59','62','83','97','100','29','94','75','41','39']
+					const ra =['99','7','1000','-10','31','0','4','9','17','28','34','48','59','62','97','100','29','94','75','41','39']
 					const te = ra[Math.floor(Math.random() * ra.length)]
 					client.sendMessage(from, 'Porcentagem de quão gay esse cara é*\n\nResultado : '+ te+'%', text, { quoted: mek })
 					await limitAdd(sender)
