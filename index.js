@@ -944,6 +944,7 @@ client.on('group-participants-update', async (anu) => {
                 case '%gay':
 				if (!isRegistered) return reply(ind.noregis())
 				if (isLimit(sender)) return reply(ind.limitend(pusname))
+				if (mek.message.extendedTextMessage === undefined || mek.message.extendedTextMessage === null) return reply('Porra, burrão, c tem que marcar alguem pra eu dizer a %')
 					rate = body.slice(1)
 					const gay =['99','7','1000','-10','31','0','4','9','17','28','34','48','59','62','100','29','94','75','41','39']
 					const jabs = gay[Math.floor(Math.random() * gay.length)]
@@ -1311,7 +1312,7 @@ client.on('group-participants-update', async (anu) => {
 				case 'welcome':
 					if (!isGroup) return reply(ind.groupo())
 					if (!isGroupAdmins) return reply(ind.admin())
-					if (args.length < 1) return reply('')
+					if (args.length < 1) return reply('Man tu tem que escolher entre 1 (ativar) e 0 (desativar)')
 					if (Number(args[0]) === 1) {
 						if (isWelkom) return reply('Ja ta ativado')
 						welkom.push(from)
@@ -1328,13 +1329,13 @@ client.on('group-participants-update', async (anu) => {
                 case 'leveling':
                 if (!isGroup) return reply(ind.groupo())
                 if (!isGroupAdmins) return reply(ind.admin())
-                if (args.length < 1) return reply('Boo :??')
-                if (args[0] === 'enable') {
-                if (isLevelingOn) return reply('*fitur level sudah aktif sebelum nya*')
+                if (args.length < 1) return reply('Man tu tem que escolher entre on (ativar) e off (desativar)')
+                if (args[0] === 'on') {
+                if (isLevelingOn) return reply('*Ja ta ativado macaco*')
                  	   _leveling.push(from)
                  	   fs.writeFileSync('./database/group/leveling.json', JSON.stringify(_leveling))
                   	   reply(ind.lvlon())
-              	  } else if (args[0] === 'disable') {
+              	  } else if (args[0] === 'off') {
                   	  _leveling.splice(from, 1)
                  	   fs.writeFileSync('./database/group/leveling.json', JSON.stringify(_leveling))
                  	    reply(ind.lvloff())
