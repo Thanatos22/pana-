@@ -1506,12 +1506,12 @@ client.on('group-participants-update', async (anu) => {
 						const encmedia = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo : mek
 						buff = await client.downloadMediaMessage(encmedia)
 						for (let _ of anu) {
-							client.sendMessage(_.jid, buff, image, {caption: `*「 𝙏𝙍𝘼𝙉𝙎𝙈𝙄𝙏𝙄𝙉𝘿𝙊 𝙋𝘼𝙍𝘼 𝙏𝙊𝘿𝙊𝙎 𝙊𝙎 𝙂𝙍𝙐𝙋𝙊𝙎 」*\n\nDo Grupo : ${groupName}\nRemetente : wa.me/${(sender.split('@')[0])}\nMensagem : ${body.slice(6)}`})
+							client.sendMessage(_.jid, buff, image, {caption: `*「 𝙏𝙍𝘼𝙉𝙎𝙈𝙄𝙏𝙄𝙉𝘿𝙊 𝙋𝘼𝙍𝘼 𝙏𝙊𝘿𝙊𝙎 𝙊𝙎 𝘾𝙃𝘼𝙏𝙎 」*\n\nDo Grupo : ${groupName}\nRemetente : wa.me/${(sender.split('@')[0])}\nMensagem : ${body.slice(6)}`})
 						}
 						reply('')
 					} else {
 						for (let _ of anu) {
-							sendMess(_.jid, `*「 𝙏𝙍𝘼𝙉𝙎𝙈𝙄𝙏𝙄𝙉𝘿𝙊 𝙋𝘼𝙍𝘼 𝙏𝙊𝘿𝙊𝙎 𝙊𝙎 𝙂𝙍𝙐𝙋𝙊𝙎 」*\n\nDari Grup : ${groupName}\nPengirim : wa.me/${(sender.split('@')[0])}\nPesan : ${body.slice(6)}`)
+							sendMess(_.jid, `*「 𝙏𝙍𝘼𝙉𝙎𝙈𝙄𝙏𝙄𝙉𝘿𝙊 𝙋𝘼𝙍𝘼 𝙏𝙊𝘿𝙊𝙎 𝙊𝙎 𝘾𝙃𝘼𝙏𝙎 」*\n\ntransmitido do grupo : ${groupName}\nremetente : wa.me/${(sender.split('@')[0])}\nmensagem : ${body.slice(6)}`)
 						}
 						reply('Mensagem transmitida com sucesso')
 					}
