@@ -802,27 +802,6 @@ client.on('group-participants-update', async (anu) => {
 					teks += `𝗧𝗼𝘁𝗮𝗹 : ${blocked.length}`
 					client.sendMessage(from, teks.trim(), extendedText, {quoted: mek, contextInfo: {"mentionedJid": blocked}})
 					break     
-				case 'leaderboard':
-				case 'lb':
-				bo = args[0]
-				_level.sort((a, b) => (a.xp < b.xp) ? 1 : -1)
-				uang.sort((a, b) => (a.uang < b.uang) ? 1 : -1)
-                let leaderboardlvl = '-----[ *𝙍𝘼𝙉𝙆𝙄𝙉𝙂 𝙇𝙀𝙑𝙀𝙇* ]----\n\n'
-                let leaderboarduang = '-----[ *𝙍𝘼𝙉𝙆𝙄𝙉𝙂 𝙋𝙊𝙉𝙏𝙊𝙎* ]----\n\n'
-                let nom = 0
-                try {
-                    for (let i = 0; i < 10; i++) {
-                        nom++
-                        leaderboardlvl += `*[${nom}]* wa.me/${_level[i].id.replace('@s.whatsapp.net', '')}\n┗⊱ *XP*: ${_level[i].xp} *Level*: ${_level[i].level}\n`
-                        leaderboarduang += `*[${nom}]* wa.me/${uang[i].id.replace('@s.whatsapp.net', '')}\n┣⊱ *Pontos*: _Rp${uang[i].uang}_\n┗⊱ *Limite*: ${limitawal - _limit[i].limit}\n`
-                    }
-                    await reply(leaderboardlvl)
-                    await reply(leaderboarduang)
-                } catch (err) {
-                    console.error(err)
-                    await reply(`minimal ${len} user untuk bisa mengakses database`)
-                }
-				break
 				case 'limit':
 				   if (!isRegistered) return reply(ind.noregis())
 				   checkLimit(sender)
@@ -1343,7 +1322,7 @@ client.on('group-participants-update', async (anu) => {
                  	   reply(ind.satukos())
                 	}
 				break 
-				case 'linkgc':
+				case 'linkgp':
 				    if (!isGroup) return reply(ind.groupo())
 				    if (!isGroupAdmins) return reply(ind.admin())
 				    if (isLimit(sender)) return reply(ind.limitend(pusname))
@@ -1408,7 +1387,7 @@ client.on('group-participants-update', async (anu) => {
 						reply(ind.stikga())
 					}
 					break
-			  	case 'evento':
+			  	case 'bonusxp':
 					if (!isGroup) return reply(ind.groupo())
 					if (!isOwner) return reply(ind.ownerb())
 					if (args.length < 1) return reply('Man tu tem que escolher entre 1 (ativar) e 0 (desativar)')
