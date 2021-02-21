@@ -646,7 +646,7 @@ client.on('group-participants-update', async (anu) => {
 				}
 				
 				//function antitxt
-                if (messages > 4000){
+                if (messagesC > 4000){
 					if (!isGroup) return
 					if (!isAntitxt) return
 					if (isGroupAdmins) return reply('Sorte sua que tu é adm, se não teu ban ja tinha vindo')
