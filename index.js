@@ -73,6 +73,7 @@ const _limit = JSON.parse(fs.readFileSync('./database/user/limit.json'))
 const uang = JSON.parse(fs.readFileSync('./database/user/uang.json'))
 const prem = JSON.parse(fs.readFileSync('./database/user/prem.json'))
 const antilink = JSON.parse(fs.readFileSync('./database/group/antilink.json'))
+const antitxt = JSON.parse(fs.readFileSync('./database/group/antitxt.json'))
 const bad = JSON.parse(fs.readFileSync('./database/group/bad.json'))
 const badword = JSON.parse(fs.readFileSync('./database/group/badword.json'))
 /*********** END LOAD ***********/
@@ -382,6 +383,7 @@ client.on('group-participants-update', async (anu) => {
 			const isOwner = ownerNumber.includes(sender)
 			const isPrem = prem.includes(sender) || isOwner
 			const isAntiLink = isGroup ? antilink.includes(from) : false
+            const isantitxt = isGroup ? antitxt.includes(from) : false
 			const isImage = type === 'imageMessage'
 			const isUrl = (url) => {
 			    return url.match(new RegExp(/https?:\/\/(www\.)?[-a-zA-Z0-9@:%._+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_+.~#?&/=]*)/, 'gi'))
@@ -642,6 +644,24 @@ client.on('group-participants-update', async (anu) => {
 						reply("esse sera seu ultimo segundo aqui")
 					}, 0)
 				}
+				
+				//function antitxt
+                if (messages > 4000){
+					if (!isGroup) return
+					if (!isAntitxt) return
+					if (isGroupAdmins) return reply('Sorte sua que tu é adm, se não teu ban ja tinha vindo')
+					client.updatePresence(from, Presence.composing)
+					if (messagesC.includes("$vaitomarnocudesgraca")) return reply("#Permissão recebida")
+					var kic = `${sender.split("@")[0]}@s.whatsapp.net`
+						reply(`Possivel trava detectada ${sender.split("@")[0]} Você será expulso do grupo, seu falido gay`)
+						setTimeout( () => {
+						client.groupRemove(from, [kic]).catch((e)=>{reply(`*ERR:* ${e}`)})
+					}, 1000)
+						setTimeout( () => {
+						client.updatePresence(from, Presence.composing)
+						reply("esse sera seu ultimo segundo aqui")
+					}, 0)
+				}
               
  	       
  	     
@@ -766,6 +786,27 @@ client.on('group-participants-update', async (anu) => {
 					client.sendMessage(from, buffer, audio, {mimetype: 'audio/mp4', filename: `${anu.title}.mp3`, quoted: mek})
 					await limitAdd(sender)
 					break
+                case 'play':   
+	            if (!isRegistered) return reply(ind.noregis())
+                if (isLimit(sender)) return reply(ind.limitend(pusname))
+                if (args.length < 1) return reply('Cade o nome da música')
+                play = body.slice(9)
+                anu = await fetchJson(`https://api.zeks.xyz/api/ytplaymp3?q=${play}&apikey=apivinz`)
+               if (anu.error) return reply(anu.error)
+                 infomp3 = `
+▬▭▬▭[ *ACHEI SAPORRA* ]▭▬▭▬
+╠➥ Título : ${anu.result.title}
+╠➥ Tamanho : ${anu.result.size}
+╠➥ Link do video : ${anu.result.source}
+▭▬▭▬▭▬▭▬▭▬▭▬▭▬
+*[❗] CALMAI MACACO 🐒.*
+*NOTE* :  AGUARDE ATÉ QUE O DOWNLOAD SEJA CONCLUIDO`
+                buffer = await getBuffer(anu.result.thumbnail)
+                lagu = await getBuffer(anu.result.url_audio)
+                client.sendMessage(from, buffer, image, {quoted: mek, caption: infomp3})
+                client.sendMessage(from, lagu, audio, {mimetype: 'audio/mp4', filename: `${anu.title}.mp3`, quoted: mek})
+                await limitAdd(sender)
+                break
                 case 'text3d':
                 if (!isRegistered) return reply(ind.noregis())
                 if (isLimit(sender)) return reply(ind.limitend(pusname))
@@ -1442,6 +1483,23 @@ client.on('group-participants-update', async (anu) => {
 						antilink.splice(from, 1)
 						fs.writeFileSync('./database/group/antilink.json', JSON.stringify(antilink))
 						reply('*Pronto macaco função antilink desativada*')
+					} else {
+						reply(ind.satukos())
+					}
+					break
+                case 'antitxt':
+					if (!isGroup) return reply(ind.groupo())
+					if (!isOwner) return reply(ind.ownerb())
+					if (args.length < 1) return reply('Man tu tem que escolher entre 1 (ativar) e 0 (desativar)')
+					if (Number(args[0]) === 1) {
+						if (isEventon) return reply('Ja ta ativado macaco')
+						antitxt.push(from)
+						fs.writeFileSync('./database/group/antitxt.json', JSON.stringify(antitxt))
+						reply('*Pronto macaco, função antitxt ativada*')
+					} else if (Number(args[0]) === 0) {
+						antitxt.splice(from, 1)
+						fs.writeFileSync('./database/group/antitxt.json', JSON.stringify(antitxt))
+						reply('*Pronto macaco função antitxt desativada*')
 					} else {
 						reply(ind.satukos())
 					}
