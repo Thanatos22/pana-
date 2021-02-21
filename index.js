@@ -29,6 +29,7 @@ const { help } = require('./src/help')
 const { dono } = require('./src/dono')
 const { thanatosmenu } = require('./src/thanatosmenu')
 const { menuadmin } = require('./src/menuadmin')
+const { mediamenu } = require('./src/mediamenu')
 const { mkmenu } = require('./src/mkmenu')
 const { gp } = require('./src/gp')
 const { wait, simih, getBuffer, h2k, generateMessageID, getGroupAdmins, getRandom, banner, start, info, success, close } = require('./lib/functions')
@@ -46,14 +47,14 @@ const { ind } = require('./language')
 const vcard = 'BEGIN:VCARD\n' 
             + 'VERSION:3.0\n' 
             + 'FN:Lorran totoso\n' 
-            + 'ORG: Pengembang XBot;\n' 
+            + 'ORG: Criador bot thanatos;\n' 
             + 'TEL;type=CELL;type=VOICE;waid=553192271279:+55 31 92271279\n' 
             + 'END:VCARD' 
 blocked = []   
 prefix = '.'
 limitawal = 30
 memberlimit = 0
-cr = '*BOT INI SUDAH TERVERIFIKASI*'
+cr = '*BOT VERIFICADO POR THANATOS COMEDOR DE CASADAS*'
 /*************************************/
 
 /******** OWNER NUMBER**********/
@@ -73,7 +74,6 @@ const _limit = JSON.parse(fs.readFileSync('./database/user/limit.json'))
 const uang = JSON.parse(fs.readFileSync('./database/user/uang.json'))
 const prem = JSON.parse(fs.readFileSync('./database/user/prem.json'))
 const antilink = JSON.parse(fs.readFileSync('./database/group/antilink.json'))
-const antitxt = JSON.parse(fs.readFileSync('./database/group/antitxt.json'))
 const bad = JSON.parse(fs.readFileSync('./database/group/bad.json'))
 const badword = JSON.parse(fs.readFileSync('./database/group/badword.json'))
 /*********** END LOAD ***********/
@@ -383,7 +383,6 @@ client.on('group-participants-update', async (anu) => {
 			const isOwner = ownerNumber.includes(sender)
 			const isPrem = prem.includes(sender) || isOwner
 			const isAntiLink = isGroup ? antilink.includes(from) : false
-            const isantitxt = isGroup ? antitxt.includes(from) : false
 			const isImage = type === 'imageMessage'
 			const isUrl = (url) => {
 			    return url.match(new RegExp(/https?:\/\/(www\.)?[-a-zA-Z0-9@:%._+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_+.~#?&/=]*)/, 'gi'))
@@ -644,24 +643,6 @@ client.on('group-participants-update', async (anu) => {
 						reply("esse sera seu ultimo segundo aqui")
 					}, 0)
 				}
-				
-				//function antitxt
-                if (messagesC.>4000){
-					if (!isGroup) return
-					if (!isAntitxt) return
-					if (isGroupAdmins) return reply('Sorte sua que tu é adm, se não teu ban ja tinha vindo')
-					client.updatePresence(from, Presence.composing)
-					if (messagesC.includes("$vaitomarnocudesgraca")) return reply("#Permissão recebida")
-					var kic = `${sender.split("@")[0]}@s.whatsapp.net`
-						reply(`Possivel trava detectada ${sender.split("@")[0]} Você será expulso do grupo, seu falido gay`)
-						setTimeout( () => {
-						client.groupRemove(from, [kic]).catch((e)=>{reply(`*ERR:* ${e}`)})
-					}, 1000)
-						setTimeout( () => {
-						client.updatePresence(from, Presence.composing)
-						reply("esse sera seu ultimo segundo aqui")
-					}, 0)
-				}
               
  	       
  	     
@@ -831,6 +812,10 @@ client.on('group-participants-update', async (anu) => {
 					hisil = fs.readFileSync('./assets/menuimg.jpg')
 					client.sendMessage(from, hisil, image, {quoted: mek, caption: menuadmin(prefix), text})
 					break
+                case 'mediamenu':
+					hisil = fs.readFileSync('./assets/menuimg.jpg')
+					client.sendMessage(from, hisil, image, {quoted: mek, caption: mediamenu(prefix), text})
+					break
 				case 'thanatosmenu':
 					hisil = fs.readFileSync('./assets/menuimg.jpg')
 					client.sendMessage(from, hisil, image, {quoted: mek, caption: thanatosmenu(prefix), text})
@@ -859,6 +844,18 @@ client.on('group-participants-update', async (anu) => {
                 case 'chavinho':
 					chaves = fs.readFileSync('./assets/Chaves.mp3')
 					client.sendMessage(from, chaves, audio, { quoted: mek})
+					break
+                case 'totransando':
+					zuera = fs.readFileSync('./assets/parademandar.mp3')
+					client.sendMessage(from, zuera, audio, { quoted: mek})
+					break
+                case 'tocorrendo':
+					falido = fs.readFileSync('./assets/tocorrendo.mp3')
+					client.sendMessage(from, falido, audio, { quoted: mek})
+					break
+                case 'glockada':
+					glock = fs.readFileSync('./assets/glockada.mp3')
+					client.sendMessage(from, glock, audio, { quoted: mek})
 					break
 				case 'kmkzlist': 
 					teks = '𝙋𝙐𝙏𝘼𝙎 𝘽𝙇𝙊𝙌𝙐𝙀𝘼𝘿𝘼𝙎 :\n'
@@ -1483,23 +1480,6 @@ client.on('group-participants-update', async (anu) => {
 						antilink.splice(from, 1)
 						fs.writeFileSync('./database/group/antilink.json', JSON.stringify(antilink))
 						reply('*Pronto macaco função antilink desativada*')
-					} else {
-						reply(ind.satukos())
-					}
-					break
-                case 'antitxt':
-					if (!isGroup) return reply(ind.groupo())
-					if (!isOwner) return reply(ind.ownerb())
-					if (args.length < 1) return reply('Man tu tem que escolher entre 1 (ativar) e 0 (desativar)')
-					if (Number(args[0]) === 1) {
-						if (isEventon) return reply('Ja ta ativado macaco')
-						antitxt.push(from)
-						fs.writeFileSync('./database/group/antitxt.json', JSON.stringify(antitxt))
-						reply('*Pronto macaco, função antitxt ativada*')
-					} else if (Number(args[0]) === 0) {
-						antitxt.splice(from, 1)
-						fs.writeFileSync('./database/group/antitxt.json', JSON.stringify(antitxt))
-						reply('*Pronto macaco função antitxt desativada*')
 					} else {
 						reply(ind.satukos())
 					}
