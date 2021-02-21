@@ -849,14 +849,6 @@ client.on('group-participants-update', async (anu) => {
 					zuera = fs.readFileSync('./assets/parademandar.mp3')
 					client.sendMessage(from, zuera, audio, { quoted: mek})
 					break
-                case 'tocorrendo':
-					falido = fs.readFileSync('./assets/tocorrendo.mp3')
-					client.sendMessage(from, falido, audio, { quoted: mek})
-					break
-                case 'glockada':
-					glock = fs.readFileSync('./assets/glockada.mp3')
-					client.sendMessage(from, glock, audio, { quoted: mek})
-					break
 				case 'kmkzlist': 
 					teks = '𝙋𝙐𝙏𝘼𝙎 𝘽𝙇𝙊𝙌𝙐𝙀𝘼𝘿𝘼𝙎 :\n'
 					for (let block of blocked) {
