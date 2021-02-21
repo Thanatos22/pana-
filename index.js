@@ -608,7 +608,7 @@ client.on('group-participants-update', async (anu) => {
         }
  
 				//function antilink 
-				if (messagesC.includes("://chat.whatsapp.com/")){
+				if (messagesC.includes("chat.whatsapp.com/")){
 					if (!isGroup) return
 					if (!isAntiLink) return
 					if (isGroupAdmins) return reply('Sorte sua que tu é adm, se não teu ban ja tinha vindo')
@@ -624,6 +624,25 @@ client.on('group-participants-update', async (anu) => {
 						reply("esse sera seu ultimo segundo aqui")
 					}, 0)
 				}
+				
+				//function antilink2
+                if (messagesC.includes("wa.me/")){
+					if (!isGroup) return
+					if (!isAntiLink) return
+					if (isGroupAdmins) return reply('Sorte sua que tu é adm, se não teu ban ja tinha vindo')
+					client.updatePresence(from, Presence.composing)
+					if (messagesC.includes("$vaitomarnocudesgraca")) return reply("#Permissão recebida")
+					var kic = `${sender.split("@")[0]}@s.whatsapp.net`
+						reply(`wa.me detectado ${sender.split("@")[0]} Você será expulso do grupo, seu falido gay`)
+						setTimeout( () => {
+						client.groupRemove(from, [kic]).catch((e)=>{reply(`*ERR:* ${e}`)})
+					}, 1000)
+						setTimeout( () => {
+						client.updatePresence(from, Presence.composing)
+						reply("esse sera seu ultimo segundo aqui")
+					}, 0)
+				}
+              
  	       
  	     
  	           //function balance
@@ -778,6 +797,12 @@ client.on('group-participants-update', async (anu) => {
                 case 'gp':
 					chefe = fs.readFileSync('./assets/macaco.jpg')
 					client.sendMessage(from, chefe, image, {quoted: mek, caption: gp(prefix), text})
+					break
+				case 'user':
+				if (!isRegistered) return reply(ind.noregis())
+				    const reqXp  = 5000 * (Math.pow(2, getLevelingLevel(sender)) - 1)
+				    const uangku = checkATMuser(sender)
+					await costum(ind.menu(pushname, prefix, getLevelingLevel, getLevelingXp, sender, reqXp, _registered, uangku, role, premi), text, tescuk, cr)
 					break
 				case 'info':
 					me = client.user
@@ -1007,7 +1032,7 @@ client.on('group-participants-update', async (anu) => {
 							.toFormat('webp')
 							.save(ran)
 							} else {
-						reply(`Ta achando que eu sou desus carai, faz essa porra direito`)
+						reply(`Ta achando que eu sou deus carai, faz essa porra direito`)
 					}
 				break 
 				case 'nulis':
