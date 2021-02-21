@@ -116,118 +116,15 @@ exports.reglevelahf = (command, pushname, getLevelingLevel, sender, ahf) => {
 
 exports.menu = (pushname, prefix, getLevelingLevel, getLevelingXp, sender, reqXp, _registered, uangku, role, premi) => { 
 	return `
-┏━━━⊱  *ABOUT USER*  ⊰━━┓
-┣⊱ *Nama* : ${pushname}
-┣⊱ *Premium* : ${premi}
-┣⊱ *Nomer* : wa.me/${sender.split("@")[0]}
-┣⊱ *Uang mu* : Rp${uangku}
-┣⊱ *XP* : ${getLevelingXp(sender)}/${reqXp} 
+┏━━━⊱  *𝙐𝙎𝙐𝘼𝙍𝙄𝙊*  ⊰━━┓
+┣⊱ *Nome* : ${pushname}
+┣⊱ *Número* : wa.me/${sender.split("@")[0]}
+┣⊱ *Pontos* : ${uangku}
+┣⊱ *Xp* : ${getLevelingXp(sender)}/${reqXp} 
 ┣⊱ *Level* : ${getLevelingLevel(sender)}
-┣⊱ *Role* : ${role}
-┣⊱ *User register* : ${_registered.length}
-┗━━━⊱  ⸨ *𝙏𝙃𝘼𝙉𝘼𝙏𝙊𝙎* ⸩  ⊰━━━━┛
-
- *${prefix}info*
- *${prefix}donasi*
- *${prefix}owner*
-
-┏━━⊱ *MAKER MENU* ⊰━━┓
-┣⊱ *${prefix}sticker* 
-┣⊱ *${prefix}quotemaker* <text|author>
-┣⊱ *${prefix}qrcode* <text>
-┣⊱ *${prefix}ttp*
-┣⊱ *${prefix}stickerhide* <text>
-┣⊱ *${prefix}emoji*
-┣━━⊱  *FUN MENU*  ⊰━━━┫
-┣⊱ *${prefix}lirik* <text>
-┣⊱ *${prefix}artinama>
-┣⊱ *${prefix}chord* <text>
-┣⊱ *${prefix}bisakah* <teks>
-┣⊱ *${prefix}kapankah* <teks>
-┣⊱ *${prefix}apakah* <teks>
-┣⊱ *${prefix}rate* <teks>
-┣⊱ *${prefix}slap*
-┣⊱ *${prefix}tampar*
-┣⊱ *${prefix}moddroid* <teks> *[VIP]*
-┣⊱ *${prefix}happymod* <teks> *[VIP]*
-┣━━⊱ *MUTUAL* ⊰━━━━━┫
-┣⊱ *${prefix}mutual*
-┣⊱ *${prefix}next*
-┣━━⊱ *MEDIA MENU* ⊰━━┫
-┣⊱ *${prefix}brainly* *[VIP]*
-┣⊱ *${prefix}pinterest*
-┣⊱ *${prefix}resepmasakan* <teks>
-┣⊱ *${prefix}igstalk* <username>
-┣⊱ *${prefix}bitly* <link>
-┣⊱ *${prefix}tiktok* <username> *[VIP]*
-┣⊱ *${prefix}tiktokstalk* <username> *[VIP]*
-┣⊱ *${prefix}ssweb* <link>
-┣⊱ *${prefix}kbbi* <text>
-┣━━⊱ *YT & SONG* ⊰━━━┫
-┣⊱ *${prefix}ytmp3* <link> *[VIP]*
-┣⊱ *${prefix}ytmp4* <link> *[VIP]*
-┣⊱ *${prefix}joox* <judul> *[VIP]*
-┣━━⊱  *NSFW MENU*  ⊰━┫
-┣⊱ *${prefix}anjing*
-┣⊱ *${prefix}blowjob*
-┣⊱ *${prefix}nekonime*
-┣⊱ *${prefix}pokemon*
-┣⊱ *${prefix}husbu*
-┣⊱ *${prefix}nangis*
-┣⊱ *${prefix}cium*
-┣⊱ *${prefix}peluk*
-┣⊱ *${prefix}ranime*
-┣━━⊱ *LIMIT & UANG* ⊰━┫
-┣⊱ *${prefix}limit* 
-┣⊱ *${prefix}buylimit* <jumblah>
-┣⊱ *${prefix}transfer* <tag |jumblah>
-┣⊱ *${prefix}dompet*
-┣⊱ *${prefix}giftlimit* <tag jumblah>
-┣⊱ *${prefix}leaderboard* <jumblah>
-┣━━⊱ *GROUP MENU* ⊰━┫
-┣⊱ *${prefix}hidetag*
-┣⊱ *${prefix}blocklist*
-┣⊱ *${prefix}grouplist*
-┣⊱ *${prefix}level*
-┣⊱ *${prefix}linkgc*
-┣⊱ *${prefix}tagall*
-┣⊱ *${prefix}setpp*
-┣⊱ *${prefix}add* <tag>
-┣⊱ *${prefix}kick* <tag>
-┣⊱ *${prefix}setname* <teks>
-┣⊱ *${prefix}setdesc* <teks>
-┣⊱ *${prefix}demote* <tag>
-┣⊱ *${prefix}promote* <tag>
-┣⊱ *${prefix}listadmin*
-┣⊱ *${prefix}group* [buka/tutup]
-┣⊱ *${prefix}leveling* [enable/disable]
-┣⊱ *${prefix}nsfw* [1/0]
-┣⊱ *${prefix}simih* [1/0]
-┣⊱ *${prefix}welcome* [1/0]
-┣━━⊱ *OWNER MENU* ⊰━┫
-┣⊱ *${prefix}bc* <teks>
-┣⊱ *${prefix}bcgc* <teks>
-┣⊱ *${prefix}kickall* <rawan ban>
-┣⊱ *${prefix}setreply* <teks>
-┣⊱ *${prefix}setprefix* <symbol>
-┣⊱ *${prefix}clearall*
-┣⊱ *${prefix}block* <tag>
-┣⊱ *${prefix}unblock* <tag>
-┣⊱ *${prefix}leave*
-┣⊱ *${prefix}event* [1/0]
-┣⊱ *${prefix}clone* <tag>
-┣⊱ *${prefix}setppbot*
-┣━━⊱ *THANGKS TO* ⊰━━┫
-┃
-┣⊱ *AFFIS JUNIANTO* <dev>
-┣⊱ *FADHIL GRAPHY* <partner>
-┣⊱ *MHANKBARBARS* <sc ori>
-┣⊱ *MYBOT TEAM* <team>
-┃
-┣⊱ NOTE : TQTO DI HAPUS
-┃ GW GAK UP LAGI OKE
-┃
-┗━━⊱  ⸨ *X-BOT* ⸩  ⊰━━━━┛
+┣⊱ *Patente* : ${role}
+┣⊱ *Registro de usuário* : ${_registered.length}
+┗━━━⊱  ⸨ *𝙏𝙃𝘼𝙉𝘼𝙏𝙊𝙎 𝘽𝙊𝙏* ⸩  ⊰━━━━┛
 `
 }
 
@@ -255,7 +152,7 @@ NOTE : Para conseguir mais comandos suba de level ou compre mais comandos com se
 }
 
 exports.satukos = () => {
-	return`*Faz saporra direito macaco`
+	return`*Faz saporra direito macaco*`
 }
 
 exports.uangkau = (pushname, sender, uangkau) => {
