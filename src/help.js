@@ -34,9 +34,9 @@ const help = (prefix) => {
 ║│↭_*   [ *${prefix}%gay* ] 
 ║│↭ _*  [ *${prefix}kmkzlist* ] 
 ║│↭ _*  [ *${prefix}ocr* ] 
-║│↭_*   [ *${prefix}ytmp4* ] 
-║│↭_*   [ *${prefix}ytmp3* ] 
-║│↭_*   [ *${prefix}play* ] 
+║│↭_*   [ *${prefix}ytmp4* ] 𝙓
+║│↭_*   [ *${prefix}ytmp3* ] 𝙓
+║│↭_*   [ *${prefix}play* ] 𝙓
 ║│↭_*   [ *${prefix}packCH* ] 
 ║│↭ _*  [ *${prefix}sticker* ] 
 ║│↭_*   [ *${prefix}sugestões* ]  
