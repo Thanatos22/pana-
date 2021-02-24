@@ -15,7 +15,7 @@ const thanatosmenu = (prefix) => {
 ║│↭_*   [ *${prefix}block* ] 
 ║│↭_*   [ *${prefix}unblock* ] 
 ║│↭_*   [ *${prefix}giftlimit* ] 
-║│↭_*   [ *${prefix}bonusxp 1/0* ] 
+║│↭_*   [ *${prefix}mineração 1/0* ] 
 ║│↭_*   [ *${prefix}antilink on/off* ] 
 ║│↭_*   [ *${prefix}bc* ] 
 ║│↭_*   [ *${prefix}bcgp* ] 
