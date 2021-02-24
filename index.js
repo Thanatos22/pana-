@@ -53,8 +53,8 @@ blocked = []
 prefix = '.'
 limitawal = 30
 memberlimit = 0
-ator = 'bot thanatos'
-namo = 'totoso'
+ator = 'Totoso'
+namo = '𝜝𝛷𝑻 𝑻𝑯𝜟𝑵𝜟𝑻𝛷𝑺'
 cr = '*BOT VERIFICADO POR MARK ZUKENBERGO E THANATOS COMEDOR DE CASADAS*'
 /*************************************/
 
@@ -768,30 +768,54 @@ client.on('group-participants-update', async (anu) => {
 				reply(`*「 𝙈𝙊𝘿𝙀𝙍𝘼𝘿𝙊𝙍/𝙋𝙍𝙀𝙈 」*\n\n➸ *ID*: ${sender.split('@')[0]}\n➸ *Dias restantes como moderador*: ${cekExp.days} dia(s) ${cekExp.hours} hora(s) ${cekExp.minutes} minuto(s)`)
 				break
 				//daftar 
-				case 'register':
-                if (isRegistered) return  reply(ind.rediregis())
-                if (!q.includes('|')) return  reply(ind.wrongf())
-                const namaUser = q.substring(0, q.indexOf('|') - 0)
-                const umurUser = q.substring(q.lastIndexOf('|') + 1)
-                const serialUser = createSerial(20)
-                if(isNaN(umurUser)) return await reply('Man como assim sua idade não é um numero wtf')
-                if (namaUser.length >= 30) return reply(`Nome grande do carai`)
-                if (umurUser > 30) return reply(`Veio pa caralho tu, So registro pessoas ate os 30 anos, não quero veio broxa no grupo`)
-                if (umurUser < 12) return reply(`Novinho de mais, so registro pessoas a partir dos 12 anos, não quero kid traba sapi no grupo`)
-                veri = sender
-                if (isGroup) {
-                    addRegisteredUser(sender, namaUser, umurUser, time, serialUser)
-                    await reply(ind.registered(namaUser, umurUser, serialUser, time, sender))
-                    addATM(sender)
-                    addLevelingId(sender)
-                    console.log(color('[REGISTER]'), color(time, 'yellow'), 'Name:', color(namaUser, 'cyan'), 'Age:', color(umurUser, 'cyan'), 'Serial:', color(serialUser, 'cyan'), 'in', color(sender || groupName))
-                } else {
-                    addRegisteredUser(sender, namaUser, umurUser, time, serialUser)
-                    await reply(ind.registered(namaUser, umurUser, serialUser, time, sender))
-                    addATM(sender)
-                    addLevelingId(sender)
-                    console.log(color('[REGISTER]'), color(time, 'yellow'), 'Name:', color(namaUser, 'cyan'), 'Age:', color(umurUser, 'cyan'), 'Serial:', color(serialUser, 'cyan'))
-                }
+				case 'register':
+
+                if (isRegistered) return  reply(ind.rediregis())
+
+                if (!q.includes('|')) return  reply(ind.wrongf())
+
+                const namaUser = q.substring(0, q.indexOf('|') - 0)
+
+                const umurUser = q.substring(q.lastIndexOf('|') + 1)
+
+                const serialUser = createSerial(20)
+
+                if(isNaN(umurUser)) return await reply('Man como assim sua idade não é um numero wtf')
+
+                if (namaUser.length >= 30) return reply(`Nome grande do carai`)
+
+                if (umurUser > 30) return reply(`Veio pa caralho tu, So registro pessoas ate os 30 anos, não quero veio broxa no grupo`)
+
+                if (umurUser < 12) return reply(`Novinho de mais, so registro pessoas a partir dos 12 anos, não quero kid traba sapi no grupo`)
+
+                veri = sender
+
+                if (isGroup) {
+
+                    addRegisteredUser(sender, namaUser, umurUser, time, serialUser)
+
+                    await reply(ind.registered(namaUser, umurUser, serialUser, time, sender))
+
+                    addATM(sender)
+
+                    addLevelingId(sender)
+
+                    console.log(color('[REGISTER]'), color(time, 'yellow'), 'Name:', color(namaUser, 'cyan'), 'Age:', color(umurUser, 'cyan'), 'Serial:', color(serialUser, 'cyan'), 'in', color(sender || groupName))
+
+                } else {
+
+                    addRegisteredUser(sender, namaUser, umurUser, time, serialUser)
+
+                    await reply(ind.registered(namaUser, umurUser, serialUser, time, sender))
+
+                    addATM(sender)
+
+                    addLevelingId(sender)
+
+                    console.log(color('[REGISTER]'), color(time, 'yellow'), 'Name:', color(namaUser, 'cyan'), 'Age:', color(umurUser, 'cyan'), 'Serial:', color(serialUser, 'cyan'))
+
+                }
+
 				break
 				//jojo 
 				case 'stickerhide':
@@ -1871,7 +1895,7 @@ client.on('group-participants-update', async (anu) => {
 				case 'imagelist':
 				case 'listimage':
 				if (!isRegistered) return reply(ind.noregis())
-					teks = '*Lista de imagens adicionadas a thanatos database :*\n\n'
+					teks = '*Lista de imagens adicionadas a minha database :*\n\n'
 					for (let awokwkwk of imagenye) {
 						teks += `- ${awokwkwk}\n`
 					}
@@ -1899,7 +1923,7 @@ client.on('group-participants-update', async (anu) => {
 				case 'listvideo':
 				case 'videolist':
 				if (!isRegistered) return reply(ind.noregis())
-					teks = '*Lista de Vídeos adicionados a thanatos database:*\n\n'
+					teks = '*Lista de Vídeos adicionados a minha database:*\n\n'
 					for (let awokwkwk of videonye) {
 						teks += `- ${awokwkwk}\n`
 					}
