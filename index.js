@@ -54,7 +54,7 @@ prefix = '.'
 limitawal = 30
 memberlimit = 0
 ator = 'Totoso'
-namo = 'BOT THANATOS'
+namo = 'Bot thanatos'
 cr = '*BOT VERIFICADO POR MARK ZUKENBERGO E THANATOS COMEDOR DE CASADAS*'
 /*************************************/
 
@@ -1278,7 +1278,7 @@ client.on('group-participants-update', async (anu) => {
 					    reply(`*Grupo aberto com sucesso*`)
 						client.groupSettingChange(from, GroupSettingChange.messageSend, false)
 					} else if (args[0] === 'close') {
-						reply(`*Grupo fechado com sucesso`)
+						reply(`*Grupo fechado com sucesso*`)
 						client.groupSettingChange(from, GroupSettingChange.messageSend, true)
 					}
 				break
