@@ -54,7 +54,7 @@ prefix = '.'
 limitawal = 30
 memberlimit = 0
 ator = 'Totoso'
-namo = '𝜝𝛷𝑻 𝑻𝑯𝜟𝑵𝜟𝑻𝛷𝑺'
+namo = 'BOT THANATOS'
 cr = '*BOT VERIFICADO POR MARK ZUKENBERGO E THANATOS COMEDOR DE CASADAS*'
 /*************************************/
 
@@ -763,59 +763,32 @@ client.on('group-participants-update', async (anu) => {
 			
 			switch(command) { 
 				//premiom
-				case 'checkmod':
-				const cekExp = ms(getPremiumExpired(sender) - Date.now())
-				reply(`*「 𝙈𝙊𝘿𝙀𝙍𝘼𝘿𝙊𝙍/𝙋𝙍𝙀𝙈 」*\n\n➸ *ID*: ${sender.split('@')[0]}\n➸ *Dias restantes como moderador*: ${cekExp.days} dia(s) ${cekExp.hours} hora(s) ${cekExp.minutes} minuto(s)`)
-				break
+				
 				//daftar 
 				case 'register':
-
                 if (isRegistered) return  reply(ind.rediregis())
-
                 if (!q.includes('|')) return  reply(ind.wrongf())
-
                 const namaUser = q.substring(0, q.indexOf('|') - 0)
-
                 const umurUser = q.substring(q.lastIndexOf('|') + 1)
-
                 const serialUser = createSerial(20)
-
                 if(isNaN(umurUser)) return await reply('Man como assim sua idade não é um numero wtf')
-
                 if (namaUser.length >= 30) return reply(`Nome grande do carai`)
-
                 if (umurUser > 30) return reply(`Veio pa caralho tu, So registro pessoas ate os 30 anos, não quero veio broxa no grupo`)
-
                 if (umurUser < 12) return reply(`Novinho de mais, so registro pessoas a partir dos 12 anos, não quero kid traba sapi no grupo`)
-
                 veri = sender
-
                 if (isGroup) {
-
                     addRegisteredUser(sender, namaUser, umurUser, time, serialUser)
-
                     await reply(ind.registered(namaUser, umurUser, serialUser, time, sender))
-
                     addATM(sender)
-
                     addLevelingId(sender)
-
                     console.log(color('[REGISTER]'), color(time, 'yellow'), 'Name:', color(namaUser, 'cyan'), 'Age:', color(umurUser, 'cyan'), 'Serial:', color(serialUser, 'cyan'), 'in', color(sender || groupName))
-
                 } else {
-
                     addRegisteredUser(sender, namaUser, umurUser, time, serialUser)
-
                     await reply(ind.registered(namaUser, umurUser, serialUser, time, sender))
-
                     addATM(sender)
-
                     addLevelingId(sender)
-
                     console.log(color('[REGISTER]'), color(time, 'yellow'), 'Name:', color(namaUser, 'cyan'), 'Age:', color(umurUser, 'cyan'), 'Serial:', color(serialUser, 'cyan'))
-
                 }
-
 				break
 				//jojo 
 				case 'stickerhide':
@@ -837,7 +810,6 @@ client.on('group-participants-update', async (anu) => {
 				break
 				case 'ytmp4':
 				if (!isRegistered) return reply(ind.noregis())
-				if (!isPrem) return reply(ind.premon(pushname))
 				if (isLimit(sender)) return reply(ind.limitend(pusname))
 					if (args.length < 1) return reply('Cade o link macaco')
 					if(!isUrl(args[0]) && !args[0].includes('youtu')) return reply(ind.stikga())
@@ -845,15 +817,10 @@ client.on('group-participants-update', async (anu) => {
 					if (anu.error) return reply(anu.error)
 					teks = `
 ▬▭▬▭[ *ACHEI SAPORRA* ]▭▬▭▬
-
 ╠➥ Título : ${anu.title}
-
 ╠➥ Tamanho : ${anu.filesize}
-
 ▭▬▭▬▭▬▭▬▭▬▭▬▭▬
-
 *[❗] CALMAI MACACO 🐒.*
-
 *NOTE* :  AGUARDE ATÉ QUE O DOWNLOAD SEJA CONCLUIDO`
 					thumb = await getBuffer(anu.thumb)
 					client.sendMessage(from, thumb, image, {quoted: mek, caption: teks})
@@ -863,7 +830,6 @@ client.on('group-participants-update', async (anu) => {
 				break 
 				case 'ytmp3':
                     if (!isRegistered) return reply(ind.noregis())
-                    if (!isPrem) return reply(ind.premon(pushname))
                     if (isLimit(sender)) return reply(ind.limitend(pusname))
 					if (args.length < 1) return reply('Cade o link macaco')
 					if(!isUrl(args[0]) && !args[0].includes('youtu')) return reply(ind.wrogf())
@@ -871,15 +837,10 @@ client.on('group-participants-update', async (anu) => {
 					if (anu.error) return reply(anu.error)
 					teks = `
 ▬▭▬▭[ *ACHEI SAPORRA* ]▭▬▭▬
-
 ╠➥ Título : ${anu.title}
-
 ╠➥ Tamanho : ${anu.filesize}
-
 ▭▬▭▬▭▬▭▬▭▬▭▬▭▬
-
 *[❗] CALMAI MACACO 🐒.*
-
 *NOTE* :  AGUARDE ATÉ QUE O DOWNLOAD SEJA CONCLUIDO`
 					thumb = await getBuffer(anu.thumb)
 					client.sendMessage(from, thumb, image, {quoted: mek, caption: teks})
@@ -888,45 +849,25 @@ client.on('group-participants-update', async (anu) => {
 					await limitAdd(sender)
 					break
                 case 'play':   
-
 	            if (!isRegistered) return reply(ind.noregis())
-
                 if (isLimit(sender)) return reply(ind.limitend(pusname))
-
                 if (args.length < 1) return reply('Cade o nome da música')
-
                 play = body.slice(9)
-
                 anu = await fetchJson(`https://api.zeks.xyz/api/ytplaymp3?q=${play}&apikey=apivinz`)
-
                if (anu.error) return reply(anu.error)
-
                  infomp3 = `
-
 ▬▭▬▭[ *ACHEI SAPORRA* ]▭▬▭▬
-
 ╠➥ Título : ${anu.result.title}
-
 ╠➥ Tamanho : ${anu.result.size}
-
 ╠➥ Link do video : ${anu.result.source}
-
 ▭▬▭▬▭▬▭▬▭▬▭▬▭▬
-
 *[❗] CALMAI MACACO 🐒.*
-
 *NOTE* :  AGUARDE ATÉ QUE O DOWNLOAD SEJA CONCLUIDO`
-
                 buffer = await getBuffer(anu.result.thumbnail)
-
                 lagu = await getBuffer(anu.result.url_audio)
-
                 client.sendMessage(from, buffer, image, {quoted: mek, caption: infomp3})
-
                 client.sendMessage(from, lagu, audio, {mimetype: 'audio/mp4', filename: `${anu.title}.mp3`, quoted: mek})
-
                 await limitAdd(sender)
-
                 break          
                 case 'text3d':
                 if (!isRegistered) return reply(ind.noregis())
@@ -1050,20 +991,6 @@ client.on('group-participants-update', async (anu) => {
                                 reply(`Essa porra de número ta nem registrada na minha database`)
                         }
                 break
-	            case 'listmod':
-	                if (!isRegistered) return reply( ind.noregis())
-	                let listPremi = '「 *𝙈𝙊𝘿𝙀𝙍𝘼𝘿𝙊𝙍𝙀𝙎/𝙋𝙍𝙀𝙈* 」\n\n'
-	                let nomorList = 0
-	                const deret = getAllPremiumUser()
-	                const arrayPremi = []
-	                for (let i = 0; i < deret.length; i++) {
-	                    const checkExp = ms(getPremiumExpired(deret[i]) - Date.now())
-	                    arrayPremi.push(getAllPremiumUser()[i])
-	                    nomorList++
-	                    listPremi += `${nomorList}. wa.me/${getAllPremiumUser()[i].split("@")[0]}\n➸ *Expirado*: ${checkExp.days} day(s) ${checkExp.hours} hora(s) ${checkExp.minutes} minuto(s)\n\n`
-	                }
-	                await reply(listPremi)
-	            break
 				case 'namoradinha':
                 if (!isRegistered) return reply( ind.noregis())
                 if (isGroup) return  reply( 'Este comando não pode ser usado em grupos!')
@@ -1127,46 +1054,28 @@ client.on('group-participants-update', async (anu) => {
 				if ( checkATMuser(sender) >= total ) {
 					confirmATM(sender, total)
 					bayarLimit(sender, payout)
-					await reply(`*「 𝙊𝙋𝙀𝙍𝘼𝘾𝘼𝙊 𝘽𝙀𝙈 𝙎𝙐𝘾𝙀𝘿𝙄𝘿𝘼 ✅ 」*\n\n*Remetente* : Admin\n*Receptor* : ${pushname}\n*Quantidade de Limites comprados* : ${payout} \n*Preço pago por cada limite* : ${koinPerlimit}/limit\n*Restante dos seus pontos* : ${checkATMuser(sender)}\n\nProcedimento bem sucedido. O código abaixo é o comprovante da sua compra\n${createSerial(15)}`)
+					await reply(`*「 𝙊𝙋𝙀𝙍𝘼𝘾𝘼𝙊 𝘽𝙀𝙈 𝙎𝙐𝘾𝙀𝘿𝙄𝘿𝘼 ✅ 」*\n\n*Remetente* : Admin\n*Receptor* : ${pushname}\n*Quantidade de Limites comprados* : ${payout} \n*Preço pago por cada limite* : ${koinPerlimit}/limit\n*Restante dos seus pontos* : ${checkATMuser(sender)}\n\nProcedimento bem sucedido\no código abaixo é o comprovante da sua compra\n*${createSerial(15)}*`)
 				} 
 				break
 				//no rest api 
 				case 'probabilidade':
-
 				if (!isRegistered) return reply(ind.noregis())
-
 				if (isLimit(sender)) return reply(ind.limitend(pusname))
-
 					rate = body.slice(1)
-
 					const ra =['99','7','1000','-10','31','0','4','9','17','28','34','48','59','62','100','29','94','75','41','39']
-
 					const te = ra[Math.floor(Math.random() * ra.length)]
-
 					client.sendMessage(from, 'Comando : *'+rate+'*\n\nResultado : '+ te+'%', text, { quoted: mek })
-
 					await limitAdd(sender)
-
 					break
-
                 case '%gay':
-
 				if (!isRegistered) return reply(ind.noregis())
-
 				if (isLimit(sender)) return reply(ind.limitend(pusname))
-
 				if (mek.message.extendedTextMessage === undefined || mek.message.extendedTextMessage === null) return reply('Porra, burrão, c tem que marcar alguem pra eu dizer a %')
-
 					rate = body.slice(1)
-
 					const gay =['99','7','1000','-10','31','0','4','9','17','28','34','48','59','62','100','29','94','75','41','39']
-
 					const jabs = gay[Math.floor(Math.random() * gay.length)]
-
 					client.sendMessage(from, '*Porcentagem de quão gay esse cara é*\n\nResultado : '+ jabs+'%', text, { quoted: mek })
-
 					await limitAdd(sender)
-
 					break			
 				case 'ocr': 
 				if (!isRegistered) return reply(ind.noregis())
@@ -1373,29 +1282,6 @@ client.on('group-participants-update', async (anu) => {
 						client.groupSettingChange(from, GroupSettingChange.messageSend, true)
 					}
 				break
-                case 'mod':
-
-					if (!isGroup) return reply(ind.groupo())
-
-					if (!isPrem) return reply(ind.premon(pushname))
-
-					if (!isBotGroupAdmins) return reply(ind.badmin())
-
-					if (args[0] === 'open') {
-
-					    reply(`Grupo aberto com sucesso`)
-
-						client.groupSettingChange(from, GroupSettingChange.messageSend, false)
-
-					} else if (args[0] === 'close') {
-
-						reply(`Grupo fechado com sucesso`)
-
-						client.groupSettingChange(from, GroupSettingChange.messageSend, true)
-
-					}
-
-				break         
 				case 'setname':
                 if (!isGroup) return reply(ind.groupo())
 			    if (!isGroupAdmins) return reply(ind.admin())
@@ -1511,23 +1397,6 @@ client.on('group-participants-update', async (anu) => {
                  	   reply(ind.satukos())
                 	}
 				break 
-				case 'nobadword':
-                    if (!isGroup) return reply(ind.groupo())
-                if (!isGroupAdmins) return reply(ind.admin())
-                if (args.length < 1) return reply('C tem que escolher entre on (ativar) e off (desativar)')
-                if (args[0] === 'on') {
-                if (isBadWord) return reply('*Ja ta ativado macaco*')
-                 	   badword.push(from)
-                 	   fs.writeFileSync('./database/group/badword.json', JSON.stringify(badword))
-                  	   reply(`Pronto macaco, ativei o recurso antipalavrões`)
-              	  } else if (args[0] === 'off') {
-                  	  badword.splice(from, 1)
-                 	   fs.writeFileSync('./database/group/badword.json', JSON.stringify(badword))
-                 	    reply(`Pronto macaco, desativei o recurso antipalavrões`)
-             	   } else {
-                 	   reply(ind.satukos())
-                	}
-                    break
 				case 'linkgp':
 				    if (!isGroup) return reply(ind.groupo())
 				    if (isLimit(sender)) return reply(ind.limitend(pusname))
@@ -1555,31 +1424,6 @@ client.on('group-participants-update', async (anu) => {
 				     	if (!isGroupAdmins) return reply(ind.admin())
 						client.deleteMessage(from, { id: mek.message.extendedTextMessage.contextInfo.stanzaId, remoteJid: from, fromMe: true })
 						break
-				case 'addbadword':
-                    if (!isOwner) return reply(ind.ownerb())
-                    if (!isGroupAdmins) return reply(ind.admin())
-                    if (args.length < 1) return reply( `Kirim perintah ${prefix}addbadword [kata kasar]. contoh ${prefix}addbadword bego`)
-                    const bw = body.slice(12)
-                    bad.push(bw)
-                    fs.writeFileSync('./database/group/bad.json', JSON.stringify(bad))
-                    reply('Pronto macaco, adicionei esse palavrão a minha database')
-                    break
-                case 'delbadword':
-                    if (!isOwner) return reply(ind.ownerb())
-                    if (!isGroupAdmins) return reply(ind.admin())
-                    if (args.length < 1) return reply( `Kirim perintah ${prefix}addbadword [kata kasar]. contoh ${prefix}addbadword bego`)
-                    let dbw = body.slice(12)
-                    bad.splice(dbw)
-                    fs.writeFileSync('./database/group/bad.json', JSON.stringify(bad))
-                    reply('Pronto macaco, removi esse palavrão ds minha database')
-                    break 
-                case 'listbadword':
-                    let lbw = `Essa é a lista de palavrões adicionados a minha database\nTotal : ${bad.length}\n`
-                    for (let i of bad) {
-                        lbw += `➸ ${i.replace(bad)}\n`
-                    }
-                    await reply(lbw)
-                    break 
                 
                 	
 				//admin feature 
@@ -1748,42 +1592,6 @@ client.on('group-participants-update', async (anu) => {
 						reply('Pronto papai, enviei a mensagem para todos os membros deste grupo')
 					}
 					break 
-				case 'addmod':
-				if (!isOwner) return reply(ind.ownerb())
-				expired = "30d"
-				if (args.length < 1 ) return reply(' Papai as vezes você parece ser preto, para dar as permissões de moderador para algum membro c tem que marcar ele')
-				mente = `${args[0].replace('@','')}@s.whatsapp.net`
-				const pnom = {id: mente , expired: Date.now() + toMs(expired) }
-				prem.push(pnom) 
-				fs.writeFileSync('./database/user/prem.json',JSON.stringify(prem))
-				reply(ind.premadd(args[0]))
-				break
-				
-				case 'delmod':
-				if (!isOwner) return reply(ind.ownerb())
-				if (args.length < 1 ) return reply('Papai as vezes você parece ser preto, para tirar as permissões de algum moderador c tem que marcar ele')
-				mente = `${args[0].replace('@','')}@s.whatsapp.net`
- 			   for( var i = 0; i < arr.length; i++){ 
- 		       if ( arr[i] === mente) { 
-    		      	  arr.splice(i, 1); 
-      		   	  i--; 
-      				fs.writeFileSync('./database/user/prem.json',JSON.stringify(arr))
-       			 }
- 			    }
-				reply(ind.dellprem(args[0]))
-				break 
-				case 'avaliação':
-				if (!isOwner) return reply(ind.ownerb())
-                if (!q) return reply(ind.wrongf())
-                try {
-         	           let evaled = await eval(q)
-         	           if (typeof evaled !== 'string') evaled = require('util').inspect(evaled)
-          	          await reply(evaled)
-       	         } catch (err) {
-        	            console.error(err)
-          	          await reply('Error!')
-  	   	       }
-        	    break 
         		case 'listonline': 
         		if (!isOwner) return reply(ind.ownerb())
         		let ido = args && /\d+\-\d+@g.us/.test(args[0]) ? args[0] : from
@@ -1856,7 +1664,7 @@ client.on('group-participants-update', async (anu) => {
 					audionye.push(`${svst}`)
 					fs.writeFileSync(`./strg/audio/${svst}.mp3`, delb)
 					fs.writeFileSync('./strg/audio.json', JSON.stringify(audionye))
-					client.sendMessage(from, `Pronto macaco, adicionei esse audio a minha database\npara verificar use ${prefix}listvn`, MessageType.text, { quoted: mek })
+					client.sendMessage(from, `Pronto macaco, adicionei esse audio a minha database\npara verificar use ${prefix}listaudio`, MessageType.text, { quoted: mek })
 					break
 				case 'getaudio':
 				if (!isRegistered) return reply(ind.noregis())
