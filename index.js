@@ -53,8 +53,8 @@ blocked = []
 prefix = '.'
 limitawal = 30
 memberlimit = 0
-ator = '𝜝𝛷𝑻 𝑻𝑯𝜟𝑵𝜟𝑻𝛷𝑺'
-namo = '👨🏿‍💻'
+ator = 'bot thanatos'
+namo = 'totoso'
 cr = '*BOT VERIFICADO POR MARK ZUKENBERGO E THANATOS COMEDOR DE CASADAS*'
 /*************************************/
 
@@ -768,37 +768,30 @@ client.on('group-participants-update', async (anu) => {
 				reply(`*「 𝙈𝙊𝘿𝙀𝙍𝘼𝘿𝙊𝙍/𝙋𝙍𝙀𝙈 」*\n\n➸ *ID*: ${sender.split('@')[0]}\n➸ *Dias restantes como moderador*: ${cekExp.days} dia(s) ${cekExp.hours} hora(s) ${cekExp.minutes} minuto(s)`)
 				break
 				//daftar 
-				case 'daftar':
-                if (isRegistered) return  reply(ind.rediregis())
-                if (!q.includes('|')) return  reply(ind.wrongf())
-                const namaUser = q.substring(0, q.indexOf('|') - 0)
-                const umurUser = q.substring(q.lastIndexOf('|') + 1)
-                const serialUser = createSerial(20)
-                if(isNaN(umurUser)) return await reply('Umur harus berupa angka!!')
-                if (namaUser.length >= 30) return reply(`why is your name so long it's a name or a train`)
-                if (umurUser > 40) return reply(`your age is too  old maximum 40 years`)
-                if (umurUser < 12) return reply(`your age is too young minimum 12 years`)
-                try {
-					ppimg = await client.getProfilePicture(`${sender.split('@')[0]}@c.us`)
-				} catch {
-					ppimg = 'https://i0.wp.com/www.gambarunik.id/wp-content/uploads/2019/06/Top-Gambar-Foto-Profil-Kosong-Lucu-Tergokil-.jpg'
-				}
-                veri = sender
-                if (isGroup) {
-                    addRegisteredUser(sender, namaUser, umurUser, time, serialUser)
-                    await client.sendMessage(from, ppimg, image, {quoted: mek, caption: ind.registered(namaUser, umurUser, serialUser, time, sender)})
-                    addATM(sender)
-                    addLevelingId(sender)
-                    checkLimit(sender)
-                    console.log(color('[REGISTER]'), color(time, 'yellow'), 'Name:', color(namaUser, 'cyan'), 'Age:', color(umurUser, 'cyan'), 'Serial:', color(serialUser, 'cyan'), 'in', color(sender || groupName))
-                } else {
-                    addRegisteredUser(sender, namaUser, umurUser, time, serialUser)
-                    await client.sendMessage(from, ppimg, image, {quoted: mek, caption: ind.registered(namaUser, umurUser, serialUser, time, sender)})
-                    addATM(sender)
-                    addLevelingId(sender)
-                    checkLimit(sender)
-                    console.log(color('[REGISTER]'), color(time, 'yellow'), 'Name:', color(namaUser, 'cyan'), 'Age:', color(umurUser, 'cyan'), 'Serial:', color(serialUser, 'cyan'))
-                }
+				case 'register':
+                if (isRegistered) return  reply(ind.rediregis())
+                if (!q.includes('|')) return  reply(ind.wrongf())
+                const namaUser = q.substring(0, q.indexOf('|') - 0)
+                const umurUser = q.substring(q.lastIndexOf('|') + 1)
+                const serialUser = createSerial(20)
+                if(isNaN(umurUser)) return await reply('Man como assim sua idade não é um numero wtf')
+                if (namaUser.length >= 30) return reply(`Nome grande do carai`)
+                if (umurUser > 30) return reply(`Veio pa caralho tu, So registro pessoas ate os 30 anos, não quero veio broxa no grupo`)
+                if (umurUser < 12) return reply(`Novinho de mais, so registro pessoas a partir dos 12 anos, não quero kid traba sapi no grupo`)
+                veri = sender
+                if (isGroup) {
+                    addRegisteredUser(sender, namaUser, umurUser, time, serialUser)
+                    await reply(ind.registered(namaUser, umurUser, serialUser, time, sender))
+                    addATM(sender)
+                    addLevelingId(sender)
+                    console.log(color('[REGISTER]'), color(time, 'yellow'), 'Name:', color(namaUser, 'cyan'), 'Age:', color(umurUser, 'cyan'), 'Serial:', color(serialUser, 'cyan'), 'in', color(sender || groupName))
+                } else {
+                    addRegisteredUser(sender, namaUser, umurUser, time, serialUser)
+                    await reply(ind.registered(namaUser, umurUser, serialUser, time, sender))
+                    addATM(sender)
+                    addLevelingId(sender)
+                    console.log(color('[REGISTER]'), color(time, 'yellow'), 'Name:', color(namaUser, 'cyan'), 'Age:', color(umurUser, 'cyan'), 'Serial:', color(serialUser, 'cyan'))
+                }
 				break
 				//jojo 
 				case 'stickerhide':
@@ -827,11 +820,16 @@ client.on('group-participants-update', async (anu) => {
 					anu = await fetchJson(`https://docs-jojo.herokuapp.com/api/ytmp4?url=${args[0]}`, {method: 'get'})
 					if (anu.error) return reply(anu.error)
 					teks = `
-▬▭▬▭[ *ACHEI SAPORRA* ]▭▬▭▬
-╠➥ Título : ${anu.title}
-╠➥ Tamanho : ${anu.filesize}
-▭▬▭▬▭▬▭▬▭▬▭▬▭▬
-*[❗] CALMAI MACACO 🐒.*
+▬▭▬▭[ *ACHEI SAPORRA* ]▭▬▭▬
+
+╠➥ Título : ${anu.title}
+
+╠➥ Tamanho : ${anu.filesize}
+
+▭▬▭▬▭▬▭▬▭▬▭▬▭▬
+
+*[❗] CALMAI MACACO 🐒.*
+
 *NOTE* :  AGUARDE ATÉ QUE O DOWNLOAD SEJA CONCLUIDO`
 					thumb = await getBuffer(anu.thumb)
 					client.sendMessage(from, thumb, image, {quoted: mek, caption: teks})
@@ -848,11 +846,16 @@ client.on('group-participants-update', async (anu) => {
 					anu = await fetchJson(`https://docs-jojo.herokuapp.com/api/ytmp3?url=${args[0]}`, {method: 'get'})
 					if (anu.error) return reply(anu.error)
 					teks = `
-▬▭▬▭[ *ACHEI SAPORRA* ]▭▬▭▬
-╠➥ Título : ${anu.title}
-╠➥ Tamanho : ${anu.filesize}
-▭▬▭▬▭▬▭▬▭▬▭▬▭▬
-*[❗] CALMAI MACACO 🐒.*
+▬▭▬▭[ *ACHEI SAPORRA* ]▭▬▭▬
+
+╠➥ Título : ${anu.title}
+
+╠➥ Tamanho : ${anu.filesize}
+
+▭▬▭▬▭▬▭▬▭▬▭▬▭▬
+
+*[❗] CALMAI MACACO 🐒.*
+
 *NOTE* :  AGUARDE ATÉ QUE O DOWNLOAD SEJA CONCLUIDO`
 					thumb = await getBuffer(anu.thumb)
 					client.sendMessage(from, thumb, image, {quoted: mek, caption: teks})
@@ -860,26 +863,46 @@ client.on('group-participants-update', async (anu) => {
 					client.sendMessage(from, buffer, audio, {mimetype: 'audio/mp4', filename: `${anu.title}.mp3`, quoted: mek})
 					await limitAdd(sender)
 					break
-                case 'play':   
-	            if (!isRegistered) return reply(ind.noregis())
-                if (isLimit(sender)) return reply(ind.limitend(pusname))
-                if (args.length < 1) return reply('Cade o nome da música')
-                play = body.slice(9)
-                anu = await fetchJson(`https://api.zeks.xyz/api/ytplaymp3?q=${play}&apikey=apivinz`)
-               if (anu.error) return reply(anu.error)
-                 infomp3 = `
-▬▭▬▭[ *ACHEI SAPORRA* ]▭▬▭▬
-╠➥ Título : ${anu.result.title}
-╠➥ Tamanho : ${anu.result.size}
-╠➥ Link do video : ${anu.result.source}
-▭▬▭▬▭▬▭▬▭▬▭▬▭▬
-*[❗] CALMAI MACACO 🐒.*
-*NOTE* :  AGUARDE ATÉ QUE O DOWNLOAD SEJA CONCLUIDO`
-                buffer = await getBuffer(anu.result.thumbnail)
-                lagu = await getBuffer(anu.result.url_audio)
-                client.sendMessage(from, buffer, image, {quoted: mek, caption: infomp3})
-                client.sendMessage(from, lagu, audio, {mimetype: 'audio/mp4', filename: `${anu.title}.mp3`, quoted: mek})
-                await limitAdd(sender)
+                case 'play':   
+
+	            if (!isRegistered) return reply(ind.noregis())
+
+                if (isLimit(sender)) return reply(ind.limitend(pusname))
+
+                if (args.length < 1) return reply('Cade o nome da música')
+
+                play = body.slice(9)
+
+                anu = await fetchJson(`https://api.zeks.xyz/api/ytplaymp3?q=${play}&apikey=apivinz`)
+
+               if (anu.error) return reply(anu.error)
+
+                 infomp3 = `
+
+▬▭▬▭[ *ACHEI SAPORRA* ]▭▬▭▬
+
+╠➥ Título : ${anu.result.title}
+
+╠➥ Tamanho : ${anu.result.size}
+
+╠➥ Link do video : ${anu.result.source}
+
+▭▬▭▬▭▬▭▬▭▬▭▬▭▬
+
+*[❗] CALMAI MACACO 🐒.*
+
+*NOTE* :  AGUARDE ATÉ QUE O DOWNLOAD SEJA CONCLUIDO`
+
+                buffer = await getBuffer(anu.result.thumbnail)
+
+                lagu = await getBuffer(anu.result.url_audio)
+
+                client.sendMessage(from, buffer, image, {quoted: mek, caption: infomp3})
+
+                client.sendMessage(from, lagu, audio, {mimetype: 'audio/mp4', filename: `${anu.title}.mp3`, quoted: mek})
+
+                await limitAdd(sender)
+
                 break          
                 case 'text3d':
                 if (!isRegistered) return reply(ind.noregis())
@@ -1084,24 +1107,42 @@ client.on('group-participants-update', async (anu) => {
 				} 
 				break
 				//no rest api 
-				case 'probabilidade':
-				if (!isRegistered) return reply(ind.noregis())
-				if (isLimit(sender)) return reply(ind.limitend(pusname))
-					rate = body.slice(1)
-					const ra =['99','7','1000','-10','31','0','4','9','17','28','34','48','59','62','100','29','94','75','41','39']
-					const te = ra[Math.floor(Math.random() * ra.length)]
-					client.sendMessage(from, 'Comando : *'+rate+'*\n\nResultado : '+ te+'%', text, { quoted: mek })
-					await limitAdd(sender)
-					break
-                case '%gay':
-				if (!isRegistered) return reply(ind.noregis())
-				if (isLimit(sender)) return reply(ind.limitend(pusname))
-				if (mek.message.extendedTextMessage === undefined || mek.message.extendedTextMessage === null) return reply('Porra, burrão, c tem que marcar alguem pra eu dizer a %')
-					rate = body.slice(1)
-					const gay =['99','7','1000','-10','31','0','4','9','17','28','34','48','59','62','100','29','94','75','41','39']
-					const jabs = gay[Math.floor(Math.random() * gay.length)]
-					client.sendMessage(from, '*Porcentagem de quão gay esse cara é*\n\nResultado : '+ jabs+'%', text, { quoted: mek })
-					await limitAdd(sender)
+				case 'probabilidade':
+
+				if (!isRegistered) return reply(ind.noregis())
+
+				if (isLimit(sender)) return reply(ind.limitend(pusname))
+
+					rate = body.slice(1)
+
+					const ra =['99','7','1000','-10','31','0','4','9','17','28','34','48','59','62','100','29','94','75','41','39']
+
+					const te = ra[Math.floor(Math.random() * ra.length)]
+
+					client.sendMessage(from, 'Comando : *'+rate+'*\n\nResultado : '+ te+'%', text, { quoted: mek })
+
+					await limitAdd(sender)
+
+					break
+
+                case '%gay':
+
+				if (!isRegistered) return reply(ind.noregis())
+
+				if (isLimit(sender)) return reply(ind.limitend(pusname))
+
+				if (mek.message.extendedTextMessage === undefined || mek.message.extendedTextMessage === null) return reply('Porra, burrão, c tem que marcar alguem pra eu dizer a %')
+
+					rate = body.slice(1)
+
+					const gay =['99','7','1000','-10','31','0','4','9','17','28','34','48','59','62','100','29','94','75','41','39']
+
+					const jabs = gay[Math.floor(Math.random() * gay.length)]
+
+					client.sendMessage(from, '*Porcentagem de quão gay esse cara é*\n\nResultado : '+ jabs+'%', text, { quoted: mek })
+
+					await limitAdd(sender)
+
 					break			
 				case 'ocr': 
 				if (!isRegistered) return reply(ind.noregis())
@@ -1308,17 +1349,28 @@ client.on('group-participants-update', async (anu) => {
 						client.groupSettingChange(from, GroupSettingChange.messageSend, true)
 					}
 				break
-                case 'mod':
-					if (!isGroup) return reply(ind.groupo())
-					if (!isPrem) return reply(ind.premon(pushname))
-					if (!isBotGroupAdmins) return reply(ind.badmin())
-					if (args[0] === 'open') {
-					    reply(`Grupo aberto com sucesso`)
-						client.groupSettingChange(from, GroupSettingChange.messageSend, false)
-					} else if (args[0] === 'close') {
-						reply(`Grupo fechado com sucesso`)
-						client.groupSettingChange(from, GroupSettingChange.messageSend, true)
-					}
+                case 'mod':
+
+					if (!isGroup) return reply(ind.groupo())
+
+					if (!isPrem) return reply(ind.premon(pushname))
+
+					if (!isBotGroupAdmins) return reply(ind.badmin())
+
+					if (args[0] === 'open') {
+
+					    reply(`Grupo aberto com sucesso`)
+
+						client.groupSettingChange(from, GroupSettingChange.messageSend, false)
+
+					} else if (args[0] === 'close') {
+
+						reply(`Grupo fechado com sucesso`)
+
+						client.groupSettingChange(from, GroupSettingChange.messageSend, true)
+
+					}
+
 				break         
 				case 'setname':
                 if (!isGroup) return reply(ind.groupo())
