@@ -53,8 +53,8 @@ blocked = []
 prefix = '.'
 limitawal = 30
 memberlimit = 0
-ator = 'Totoso'
-namo = 'Bot thanatos'
+ator = 'thanatosbot'
+namo = 'totoso'
 cr = '*BOT VERIFICADO POR MARK ZUKENBERGO E THANATOS COMEDOR DE CASADAS*'
 /*************************************/
 
