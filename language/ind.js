@@ -1,3 +1,5 @@
+const a = '```'
+
 exports.wait = () => {
 	return`*Calmai macaco 🦧*`
 }
@@ -7,19 +9,19 @@ exports.succes = () => {
 }
 
 exports.lvlon = () => {
-	return`*Função level ativada*`
+	return`*Pronto macaco, função de level ativada*`
 }
 
 exports.lvloff = () => {
-	return`*Função level desativada*`
+	return`*Pronto macaco, função de level desativada*`
 }
 
 exports.lvlnul = () => {
-	return`*Porra manin, tu nem level tem ainda*`
+	return`*C ainda nao tme level manin*`
 }
 
 exports.lvlnoon = () => {
-	return`*Oporra função de level não ta ativada aqui*`
+	return`*A função de level não esta ativada nesse chat*`
 }
 
 exports.noregis = () => {
@@ -27,7 +29,7 @@ exports.noregis = () => {
 }
 
 exports.rediregis = () => {
-	return`*Você ja esta registrado macaco*`
+	return`*C ja tá registrado macaco*`
 }
 
 exports.stikga = () => {
@@ -35,27 +37,27 @@ exports.stikga = () => {
 }
 
 exports.linkga = () => {
-	return`*Link invalido*`
+	return`*Link inválido*`
 }
 
 exports.groupo = () => {
-	return`*「Este comando so pode ser usado em grupos」*`
+	return`*Este comando so pode ser usado em grupos*`
 }
 
 exports.ownerb = () => {
-	return`*Você não é meu papai 😡*`
+	return`*Você nao é meu papai 😡*`
 }
 
 exports.ownerg = () => {
-	return`*「 𝙎𝙊𝙈𝙀𝙉𝙏𝙀 𝙊 𝘿𝙊𝙉𝙊 𝘿𝙊 𝙂𝙍𝙐𝙋𝙊 𝙋𝙊𝘿𝙀 𝙐𝙎𝘼𝙍 𝙀𝙎𝙏𝙀 𝘾𝙊𝙈𝘼𝙉𝘿𝙊 」*`
+	return`*Somente o dono do grupo pode usar este comando*`
 }
 
 exports.admin = () => {
-	return`*「 𝙎𝙊𝙈𝙀𝙉𝙏𝙀 𝘼𝘿𝙈𝙄𝙉𝙄𝙎𝙏𝙍𝘼𝘿𝙊𝙍𝙀𝙎 𝘿𝙊 𝙂𝙍𝙐𝙋𝙊 𝙋𝙊𝘿𝙀𝙈 𝙐𝙎𝘼𝙍 𝙀𝙎𝙎𝙀 𝘾𝙊𝙈𝘼𝙉𝘿𝙊 」*`
+	return`*Somente os administradores do grupo podem usar este comando*`
 }
 
 exports.badmin = () => {
-	return`*「 𝙋𝘼𝙍𝘼 𝙐𝙎𝘼𝙍 𝙀𝙎𝙏𝙀 𝘾𝙊𝙈𝘼𝙉𝘿𝙊 𝙊 𝘽𝙊𝙏 𝘿𝙀𝙑𝙀 𝙎𝙀𝙍 𝙐𝙈 𝘿𝙊𝙎 𝘼𝘿𝙈𝙄𝙉𝙄𝙎𝙏𝙍𝘼𝘿𝙊𝙍𝙀𝙎 」*`
+	return`*Para usar este comando o bot deve ser um dos administradores*`
 }
 
 exports.nsfwoff = () => {
@@ -67,7 +69,7 @@ exports.bug = () => {
 }
 
 exports.wrongf = () => {
-	return`*Formato incorreto / texto em branco*`
+	return`*Formato incorreto/texto inválido*`
 }
 
 exports.clears = () => {
@@ -75,7 +77,7 @@ exports.clears = () => {
 }
 
 exports.pc = () => {
-	return`*「 REGISTRASI 」*\n\n verifique a mensagem que eu enviei para ter certeza do seu cadastro \n\nNOTE:\n*se você não entendeu a mensagem. significa que você não salvou o número de serie na hora do cadastro*`
+	return`*「 𝘾𝘼𝘿𝘼𝙎𝙏𝙍𝙊 」*\n\n verifique a mensagem que eu enviei para ter certeza do seu cadastro \n\nNOTE:\n*se você não entendeu a mensagem. significa que você não salvou o número de serie na hora do cadastro*`
 }
 
 exports.registered = (namaUser, umurUser, serialUser, time, sender) => {
@@ -83,11 +85,11 @@ exports.registered = (namaUser, umurUser, serialUser, time, sender) => {
 }
 
 exports.cmdnf = (prefix, command) => {
-	return`command *${prefix}${command}* não encontrado para ver meus comandos basta enviar *${prefix}menu*`
+	return`comando *${prefix}${command}* não encontrado para ver meus comandos basta enviar *${prefix}menu*`
 }
 
 exports.owneresce = (pushname) => {
-	return`*Desculpe, mas ${pushname} não é o dono do bot*`
+	return`*Ta ficando doido filho tentando se passar pelo meu pai vsfd falido lixo*`
 }
 
 exports.reglevelaha = (command, pushname, getLevelingLevel, sender, aha) => {
@@ -118,18 +120,19 @@ exports.menu = (pushname, prefix, getLevelingLevel, getLevelingXp, sender, reqXp
 	return `
 ┏━━━⊱  *𝙐𝙎𝙐𝘼𝙍𝙄𝙊*  ⊰━━┓
 ┣⊱ *Nome* : ${pushname}
+┣⊱ *Moderador* : ${premi}
 ┣⊱ *Número* : wa.me/${sender.split("@")[0]}
-┣⊱ *Pontos* : ${uangku}
-┣⊱ *Xp* : ${getLevelingXp(sender)}/${reqXp} 
+┣⊱ *Pontos* : Rp${uangku}
+┣⊱ *XP* : ${getLevelingXp(sender)}/${reqXp} 
 ┣⊱ *Level* : ${getLevelingLevel(sender)}
 ┣⊱ *Patente* : ${role}
-┣⊱ *Registro de usuário* : ${_registered.length}
-┗━━━⊱  ⸨ *𝙏𝙃𝘼𝙉𝘼𝙏𝙊𝙎 𝘽𝙊𝙏* ⸩  ⊰━━━━┛
+┗━━━⊱  ⸨ *𝘽𝙊𝙏 𝙏𝙃𝘼𝙉𝘼𝙏𝙊𝙎* ⸩  ⊰━━━━┛
 `
 }
 
 exports.levelup = (pushname, sender, getLevelingXp,  getLevel, getLevelingLevel, role) => {
 	return`
+	
 *「 𝙋𝘼𝙍𝘼𝘽𝙀𝙉𝙎 🥳 」*
 ┏⊱ *Nome* : ${pushname}
 ┣⊱ *Número* : wa.me/${sender.split("@")[0]}
@@ -145,14 +148,14 @@ exports.limitend = (pushname) => {
 
 exports.limitcount = (limitCounts) => {
 	return`
-*「 𝙇𝙄𝙈𝙄𝙏𝙀」*
+*「 𝙇𝙄𝙈𝙄𝙏𝙀 」*
 Seu limite restante é de : ${limitCounts}
 
 NOTE : Para conseguir mais comandos suba de level ou compre mais comandos com seus pontos`
 }
 
 exports.satukos = () => {
-	return`*Faz saporra direito macaco*`
+	return`*C ta fazendo merda ai, o correto seria 1/on ou 0/off*`
 }
 
 exports.uangkau = (pushname, sender, uangkau) => {
@@ -176,4 +179,3 @@ exports.dellprem = (hnom) => {
 exports.premon = (pushname) => {
 	return`Desculpe ${pushname} você não tem autorização moderador ou premium`
 }
-
